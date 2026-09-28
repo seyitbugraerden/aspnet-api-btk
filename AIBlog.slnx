@@ -1,1 +1,3 @@
-<Solution />
+<Solution>
+  <Project Path="AIBlog.WebApi/AIBlog.WebApi.csproj" />
+</Solution>
