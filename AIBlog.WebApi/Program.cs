@@ -3,6 +3,8 @@ using AIBlog.WebApi.Context;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<BlogAIContext>();
+//Swagger Günceller
+builder.Services.AddControllers();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -22,5 +24,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// Swagger günceller.
+app.MapControllers();
 
 app.Run();

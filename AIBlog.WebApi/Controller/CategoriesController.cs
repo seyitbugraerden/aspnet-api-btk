@@ -20,6 +20,12 @@ namespace AIBlog.WebApi.Controller
         }
         // Dependency Injection (Bağımlılık Enjeksiyonu) kullanarak BlogAIContext sınıfını CategoriesController'a enjekte ediyoruz. Bu sayede veritabanı işlemlerini gerçekleştirebiliriz.
 
+        [HttpGet]
+        public IActionResult CategoryList()
+        {
+            var categories = _context.Categories.ToList();
+            return Ok(categories);
+        }
         
     }
 }
