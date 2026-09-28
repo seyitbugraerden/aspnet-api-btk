@@ -1,3 +1,4 @@
+using AIBlog.WebApi.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,8 @@ namespace AIBlog.WebApi.Controller
             var categories = _context.Categories.ToList();
             return Ok(categories);
         }
-        [HttpGet("{id}")]
-        public IActionResult GetCategory(int id)
+        [HttpGet("{id:int}")]
+        public IActionResult GetCategory([FromRoute] int id)
         {
             var category = _context.Categories.Find(id);
             if (category == null)
@@ -38,14 +39,30 @@ namespace AIBlog.WebApi.Controller
             return Ok(category);
         }
         [HttpPost]
-        public IActionResult CreateCategory(Category category)
+        public IActionResult CreateCategory([FromBody] CategoryRequest request)
         {
+            var category = new Category
+            {
+                CategoryName = request.CategoryName
+            };
             _context.Categories.Add(category);
             _context.SaveChanges();
-            return Ok("Kategori başarıyla oluşturuldu.");
+            return CreatedAtAction(nameof(GetCategory), new { id = category.CategoryId }, category);
         }
-        [HttpDelete("{id}")]
-        public IActionResult DeleteCategory(int id)
+        [HttpPut("{id:int}")]
+        public IActionResult UpdateCategory([FromRoute] int id, [FromBody] CategoryRequest request)
+        {
+            var category = _context.Categories.Find(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            category.CategoryName = request.CategoryName;
+            _context.SaveChanges();
+            return NoContent();
+        }
+        [HttpDelete("{id:int}")]
+        public IActionResult DeleteCategory([FromRoute] int id)
         {
             var category = _context.Categories.Find(id);
             if (category == null)

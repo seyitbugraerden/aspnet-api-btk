@@ -1,6 +1,57 @@
 @AIBlog.WebApi_HostAddress = http://localhost:5159
+# POST yanıtındaki ID değerlerini aşağıya yazın.
+@productId = 1
+@categoryId = 1
 
-GET {{AIBlog.WebApi_HostAddress}}/weatherforecast/
-Accept: application/json
+GET {{AIBlog.WebApi_HostAddress}}/api/Products
 
 ###
+POST {{AIBlog.WebApi_HostAddress}}/api/Products
+Content-Type: application/json
+
+{
+  "productName": "Örnek ürün",
+  "productStock": 10,
+  "productPrice": 99.90
+}
+
+###
+GET {{AIBlog.WebApi_HostAddress}}/api/Products/{{productId}}
+
+###
+PUT {{AIBlog.WebApi_HostAddress}}/api/Products/{{productId}}
+Content-Type: application/json
+
+{
+  "productName": "Güncellenmiş ürün",
+  "productStock": 20,
+  "productPrice": 149.90
+}
+
+###
+DELETE {{AIBlog.WebApi_HostAddress}}/api/Products/{{productId}}
+
+###
+GET {{AIBlog.WebApi_HostAddress}}/api/Categories
+
+###
+POST {{AIBlog.WebApi_HostAddress}}/api/Categories
+Content-Type: application/json
+
+{
+  "categoryName": "Örnek kategori"
+}
+
+###
+GET {{AIBlog.WebApi_HostAddress}}/api/Categories/{{categoryId}}
+
+###
+PUT {{AIBlog.WebApi_HostAddress}}/api/Categories/{{categoryId}}
+Content-Type: application/json
+
+{
+  "categoryName": "Güncellenmiş kategori"
+}
+
+###
+DELETE {{AIBlog.WebApi_HostAddress}}/api/Categories/{{categoryId}}
