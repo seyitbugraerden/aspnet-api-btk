@@ -5,7 +5,7 @@ namespace AIBlog.WebApi.Entities
     public class Category
     {
         [Key]
-        public int MyProperty { get; set; }
+        public int CategoryId { get; set; }
         public required string CategoryName { get; set; }
     }
 }
