@@ -1,0 +1,6 @@
+@AIBlog.WebApi_HostAddress = http://localhost:5159
+
+GET {{AIBlog.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
