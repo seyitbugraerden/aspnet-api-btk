@@ -24,6 +24,11 @@ namespace AIBlog.WebApi.Context
         }
 
         public DbSet<Category> Categories => Set<Category>();
-        public DbSet<Product> Products => Set<Product>();
+        public DbSet<Article> Articles => Set<Article>();
+        public DbSet<About> Abouts => Set<About>();
+        public DbSet<Contact> Contacts => Set<Contact>();
+        public DbSet<Employee> Employees => Set<Employee>();
+        public DbSet<TradingVideo> TradingVideos => Set<TradingVideo>();
+
     }
 }
