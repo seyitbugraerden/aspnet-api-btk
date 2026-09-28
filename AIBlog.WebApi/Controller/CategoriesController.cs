@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AIBlog.WebApi.Context;
+using AIBlog.WebApi.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIBlog.WebApi.Controller
@@ -26,6 +27,34 @@ namespace AIBlog.WebApi.Controller
             var categories = _context.Categories.ToList();
             return Ok(categories);
         }
-        
+        [HttpGet("{id}")]
+        public IActionResult GetCategory(int id)
+        {
+            var category = _context.Categories.Find(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            return Ok(category);
+        }
+        [HttpPost]
+        public IActionResult CreateCategory(Category category)
+        {
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+            return Ok("Kategori başarıyla oluşturuldu.");
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteCategory(int id)
+        {
+            var category = _context.Categories.Find(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            _context.Categories.Remove(category);
+            _context.SaveChanges();
+            return Ok("Kategori başarıyla silindi.");
+        }
     }
 }
