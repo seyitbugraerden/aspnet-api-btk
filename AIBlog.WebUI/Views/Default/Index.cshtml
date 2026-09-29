@@ -23,17 +23,13 @@
             </div>
             @await Component.InvokeAsync("_DefaultTrendingStoriesArticlesComponentPartial")
             @await Component.InvokeAsync("_DefaultLatestPostsComponentPartial")
-            <!--================= Back Add Start Here =================-->
             <div class="back-add text-center"><div class="container"><img src="~/template/assets/images/add2.jpg" alt="add-image"></div></div>
             @await Component.InvokeAsync("_SubFeatureComponentPartial")
             @await Component.InvokeAsync("_DefaultTradingVideoComponentPartial")
             @await Component.InvokeAsync("_SecondFeaturePostComponentPartial")
             @await Component.InvokeAsync("_DefaultSubSliderComponentPartial")
         </div>        
-
-        <!--================= Footer Section Start Here =================-->
         @await Component.InvokeAsync("_LayoutFooterComponentPartial")
-        <!--================= Footer Section End Here =================-->
         
         <!--================= Scroll to Top Start =================-->
         <div id="backscrollUp">
