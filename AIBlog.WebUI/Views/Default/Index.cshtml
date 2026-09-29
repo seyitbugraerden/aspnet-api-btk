@@ -1163,21 +1163,7 @@
         </div> 
         <!--================= Scroll to Top End =================-->
 
-        <!--================= Jquery latest version =================-->
-        <script src="~/template/assets/js/jquery.min.js"></script>
-        <!--================= Bootstrap js =================-->
-        <script src="~/template/assets/js/bootstrap.min.js"></script>
-        <!--================= Owl Carousel js =================-->
-        <script src="~/template/assets/js/owl.carousel.min.js"></script>
-        <!--================= Magnific Popup =================-->
-        <script src="~/template/assets/js/jquery.magnific-popup.min.js"></script>
-        <!--================= Wow js =================-->
-        <script src="~/template/assets/js/wow.min.js"></script>                
-        <!--================= Back menus js =================-->
-        <script src="~/template/assets/js/back-menus.js"></script>
-        <!--================= Plugins js =================-->
-        <script src="~/template/assets/js/plugins.js"></script>       
-		<!--================= Main js =================-->
-        <script src="~/template/assets/js/main.js"></script>
+
+@await Component.InvokeAsync("_LayoutScriptsComponentPartial")
     </body>
 </html>
