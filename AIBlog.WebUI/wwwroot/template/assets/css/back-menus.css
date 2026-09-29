@@ -1,0 +1,276 @@
+/* Jk Responsive Menu Here
+----------------------------------------*/
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+.back-menus {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.back-menus li{
+    list-style: none;
+}
+.back-menus li ul {
+    display:none;
+}
+.back-menus > li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    float: left;
+}
+.back-menus li > a {
+    color:#c0c0c0;
+}
+.back-menus > li > a {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 26px 34px 26px 34px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+body.back-one-page .back-menus > li > a {
+    padding: 26px 16px 26px 16px;
+}
+
+.back-menus li.menu-active > a {
+    color:#0d1e50;
+}
+
+
+.back-menus li ul.sub-menu li.menu-active > a {
+    color:#0d1e50;
+}
+
+.back-menus li ul.sub-menu li a.back-current-page {
+    color:#0088cb !important;
+}
+
+.back-menus li div.menu-active {
+    position: relative;
+}
+
+
+.back-menus > li > ul.sub-menu {
+    
+    list-style: none;
+    clear: both;
+    margin: 0;
+    position: absolute;
+    z-index: 999;
+}
+.back-menus li ul.sub-menu {
+    background: #fff;
+    padding: 18px 0 18px;
+    box-shadow: 30px 0 30px rgba(8,10,41,.10);
+}
+.back-menus li ul.sub-menu > li {
+    width: 220px;
+}
+.back-menus li{
+    position: relative;
+}
+.back-menus li ul.sub-menu li a {
+    display: block;
+    margin: 0px 0px;
+    padding: 5px 35px 5px 35px;
+    text-decoration: none;
+    font-weight: normal;
+    background: none;
+    color: #0a0a0a;
+}
+
+.back-menus > li > ul.sub-menu > li {
+    position: relative;
+}
+.back-menus > li > ul.sub-menu > li ul.sub-menu {
+    position: absolute;
+    left: 100%;
+    top: 0px;
+    display: none;
+    list-style: none;
+}
+.back-menus > li > ul.sub-menu > li ul.sub-menu > li ul.sub-menu {
+    position: absolute;
+    left: 100%;
+    top: 0px;
+    display: none;
+    list-style: none;
+}
+
+.back-menus > li.edge > ul.sub-menu{
+    right: 0;
+}
+
+.back-menus li ul.sub-menu li.edge ul.sub-menu,
+.back-menus > li > ul.sub-menu > li.edge ul.sub-menu > li.edge ul.sub-menu {
+    left: -100% !important;
+}
+
+/* Menu Toggle Btn
+----------------------------------------*/
+
+
+
+.menu-toggle .icon-bar {
+    display: block !important;
+    width: 25px;
+    height: 2px;
+    background-color: #fff !important;
+    margin: 6px 0;
+    transition: all 500ms ease;
+}
+
+.menu-toggle .icon-bar:nth-child(1){
+    width: 16px;
+    margin-left: auto;
+}
+
+.menu-toggle .icon-bar:nth-child(2){
+    width: 20px;
+    margin-left: auto;
+}
+
+.menu-toggle .icon-bar:hover {
+    background-color: #fff !important;
+}
+.menu-toggle:hover span.icon-bar{
+    width: 25px !important;
+}
+.menu-toggle #menu-btn {
+    float: right;
+    background: #202020;
+    border: 1px solid #0C0C0C;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    clear: right;
+    display: none;
+}
+.hide-menu {
+    display: none;
+}
+
+
+
+/* Responsive Menu Styles
+----------------------------------------*/
+/*Note: change the max-width asper your requirment and change the same in aceResponsiveMenu({resizeWidth: "991" }) function*/
+
+@media screen and (min-width: 992px) {
+    .back-main-menu nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+
+@media screen and (max-width: 991px) {
+    .back-menus li ul.sub-menu li a {
+        padding: 12px 40px 12px 50px;
+    }
+    .menu-toggle #menu-btn{
+        display: block;
+    }
+    .back-menus .has-sub .arrow{
+        width: 55px;
+        height: 54px;
+        display: block;
+        background: #fff;
+        position: absolute;
+        right: 0;
+        z-index: 99;     
+        cursor: pointer;  
+        border-left: 1px solid #f5f3f3;                   
+    }
+
+    .back-menus .has-sub .arrow:after{
+        content: "";
+        position: absolute;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 10px solid #0d1e50;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);        
+    }
+
+    .back-menus .has-sub.menu-active > .arrow:after{
+        content: "";
+        position: absolute;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 10px solid #0d1e50;
+        border-top: 0px solid #0d1e50;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    ul[data-menu-style="vertical"] , ul[data-menu-style="accordion"],
+    ul[data-menu-style="vertical"] li ul.sub-menu {
+        width: 100% !important;
+    } 
+    .back-menus {
+        position: absolute;
+        width:100%;
+        box-shadow: none;
+        margin-bottom: 12px;
+    }
+    .back-menus > li {
+        border-bottom: 1px solid #f5f3f3;
+       float: none;       
+    }
+    .back-menus > li ul.sub-menu > li{
+        border-top: 1px solid #f5f3f3;
+       float: none;       
+    }    
+
+    .back-menus > li ul.sub-menu > li:last-child{
+        border-bottom: none;
+    }
+
+    .back-menus  li {
+        position: relative;
+        background: #fff;
+    }  
+    .back-menus li a:hover {
+        background: #f5f3f3 !important;
+        color: #0d1e50 !important;
+    }
+    .back-menus li > .back-current-page{
+        color: #0d1e50 !important;
+    }
+    .back-menus > li:first-child {
+        border-top: none;
+    }
+
+    .back-menus li ul.sub-menu > li {
+        width: 100%;
+    }
+    .back-menus li ul.sub-menu li ul.sub-menu li a{
+        padding-left: 60px;
+    }  
+    .back-menus li ul.sub-menu li ul.sub-menu li ul.sub-menu li a{
+        padding-left: 80px;
+    }  
+    .back-menus > li > ul.sub-menu {
+        position: static;
+    }
+    .back-menus > li > ul.sub-menu > li ul.sub-menu {
+        position: static;
+    }
+    .back-menus > li > ul.sub-menu > li ul.sub-menu > li ul.sub-menu {
+        position: static;
+    }
+} 
+ 
