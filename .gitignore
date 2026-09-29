@@ -4,6 +4,9 @@
 **/artifacts/
 **/publish/
 
+# Web UI client libraries
+/AIBlog.WebUI/wwwroot/lib/
+
 # IDE and user-specific settings
 .vs/
 .idea/
