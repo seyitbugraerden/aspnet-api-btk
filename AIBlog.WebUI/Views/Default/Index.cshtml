@@ -38,80 +38,9 @@
             <!--================= Back Trending Stories End Here =================-->
 
             <!--================= Back Latest Posts Start Here =================-->
-            <div class="back-hero-area back-latest-posts">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="back-title">
-                                <h2>Latest Posts</h2>
-                            </div>
-                        </div>
-                        <div class="col-md-4 text-right">
-                            <a href="#" class="back-btn">View All</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <ul>
-                                <li>
-                                    <div class="image-area">
-                                        <a href="#"><img src="~/template/assets/images/latest-news/1.jpg" alt="image"></a>
-                                        <div class="back-btm-content">
-                                            <a href="#" class="back-cate back-tra">Politics</a>
-                                            <h3><a href="#">Well designed and well printed only <br>for you and the audience.</a></h3>
-                                            <ul>
-                                                <li class="back-author"><span><img src="~/template/assets/images/author/1.jpg" alt="image"></span><a href="#">by Jon Deo</a></li>
-                                                <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>March 26, 2022</li>
-                                                <li class="back-comments"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>95 Comments</li>
-                                            </ul>
-                                        </div>
-                                    </div> 
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-4 md-mt-40"> 
-                            <ul class="back-hero-bottom">
-                                <li>
-                                    <div class="image-areas">
-                                        <a href="#"><img src="~/template/assets/images/latest-news/2.jpg" alt="image"></a>                                
-                                    </div>
-                                    <div class="back-btm-content">
-                                        <a href="#" class="back-cates">Travel</a>
-                                        <h3><a href="#">Top 20 best thems plugn & on this year visit Expart</a></h3>                                        
-                                    </div> 
-                                </li>
-                                <li>
-                                    <div class="image-areas">
-                                        <a href="#"><img src="~/template/assets/images/latest-news/3.jpg" alt="image"></a>
-                                    </div> 
-                                    <div class="back-btm-content">
-                                        <a href="#" class="back-cates">Art & Design</a>
-                                        <h3><a href="#">That woman comes from of heaven look like angel</a></h3>                                        
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="image-areas">
-                                        <a href="#"><img src="~/template/assets/images/latest-news/4.jpg" alt="image"></a>
-                                    </div> 
-                                    <div class="back-btm-content">
-                                        <a href="#" class="back-cates">Lifestyle</a>
-                                        <h3><a href="#">Green leaves photo plant the with cute girl modeling</a></h3>                                        
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="image-areas">
-                                        <a href="#"><img src="~/template/assets/images/latest-news/5.jpg" alt="image"></a>                              
-                                    </div>
-                                    <div class="back-btm-content">
-                                        <a href="#" class="back-cates">Fashion</a>
-                                        <h3><a href="#">Peveraging tech to drive a better IT best experience</a></h3>                                        
-                                    </div> 
-                                </li>
-                            </ul>                           
-                        </div>
-                    </div>                         
-                </div>
-            </div>
+            @await Component.InvokeAsync("_DefaultLatestPostsComponentPartial")
+            <!--================= Back Latest Posts End Here =================-->
+            
             <!--================= Back Latest Posts End Here =================-->
 
             <!--================= Back Add Start Here =================-->
