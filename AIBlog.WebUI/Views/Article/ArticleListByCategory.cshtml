@@ -20,374 +20,275 @@
                             @await Component.InvokeAsync("_BlogDetailTagComponentPartial")
 
                             @await Component.InvokeAsync("_BlogDetailAuthorComponentArtial")
-                            @await Component.InvokeAsync("_BlogDetailPreviousAndNextPostComponentPartial")""
-                            <div class="back-blog-related">
-                                <div class="container">
-                                    <div class="back-title back-small-title">
-                                        <h2>İlgili Yazılar</h2>
-                                    </div>
-                                    <ul id="back-blog-slider" class="owl-carousel owl-theme">
-                                        <li class="item">
-                                            <div class="back-inner">
-                                                <div class="back-blog-image">
-                                                    <a href="blog-details.html"><img src="~/images/travel1.jpeg"
-                                                                                         alt=""></a>
-                                                    </div>
-                                                    <div class="back-blog-content">
-                                                        <em class="back-blog-date">13 Nisan 2022</em>
-                                                        <a href="blog-details.html">
-                                                            <h3>Geleceğin okulları <br> ve toplumsal yenilikler</h3>
-                                                        </a>
-                                                        <ul>
-                                                            <li class="back-author"> <span><img
-                                                                src="~/userimages/woman1.jpg" alt="Görsel"></span>
-                                                                <a href="#">Nina Allon</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                            @await Component.InvokeAsync("_BlogDetailPreviousAndNextPostComponentPartial")
+                            @await Component.InvokeAsync("_BlogDetailRelatedPostComponentPartial")
+                            <div class="author-comment">
+                                <div class="back-title back-small-title">
+                                    <h2>3 Yorum</h2>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-lg-1">
+                                                <div class="image-comments"><img src="~/userimages/man1.png" alt="">
                                                 </div>
-                                            </li>
-
-                                            <li class="item">
-                                                <div class="back-inner">
-                                                    <div class="back-blog-image">
-                                                        <a href="blog-details.html"><img src="~/images/roma.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="back-blog-content">
-                                                        <em class="back-blog-date">17 Mayıs 2022</em>
-                                                        <a href="blog-details.html">
-                                                            <h3>Üniversite ücretleri <br> neden bu kadar yüksek?</h3>
-                                                        </a>
-                                                        <ul>
-                                                            <li class="back-author"> <span><img
-                                                                src="~/userimages/woman3.jpg" alt="Görsel"></span>
-                                                                <a href="#">Nina Allon </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                            </div>
+                                            <div class="col-lg-11">
+                                                <div class="dsc-comments">
+                                                    <h6>Neal Adams</h6>
+                                                    <span class="reply"> <span class="date">21 Temmuz 2022,
+                                                            20:24</span></span>
+                                                    <p>Yazıdaki önerileri günlük hayatımda uygulamaya başladım.
+                                                        Özellikle küçük adımlarla ilerleme fikrini çok faydalı buldum.
+                                                    </p>
+                                                    <a href="#">Yanıtla</a>
                                                 </div>
-                                            </li>
-
-                                            <li class="item">
-                                                <div class="back-inner">
-                                                    <div class="back-blog-image">
-                                                        <a href="blog-details.html"><img src="~/images/castle1.jpg"
-                                                                                             alt=""></a>
-                                                        </div>
-                                                        <div class="back-blog-content">
-                                                            <em class="back-blog-date">14 Ekim 2022</em>
-                                                            <a href="blog-details.html">
-                                                                <h3>Üniversite yaşamındaki <br> diğer masraflar</h3>
-                                                            </a>
-                                                            <ul>
-                                                                <li class="back-author"><span><img src="~/userimages/woman5.jpg"
-                                                                                                       alt="Görsel"></span> <a href="#">Nina Allon </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="item">
-                                                    <div class="back-inner">
-                                                        <div class="back-blog-image">
-                                                            <a href="blog-details.html"><img src="~/images/lifestyle.jpg"
-                                                                                                 alt=""></a>
-                                                            </div>
-                                                            <div class="back-blog-content">
-                                                                <em class="back-blog-date">19 Nisan 2022</em>
-                                                                <a href="blog-details.html">
-                                                                    <h3>Geleceğin okulları <br> ve toplumsal yenilikler</h3>
-                                                                </a>
-                                                                <ul>
-                                                                    <li class="back-author"> <span><img src="~/userimages/man1.png"
-                                                                                                            alt="Görsel"></span> <a href="#">Nina Allon </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
                                             </div>
                                         </div>
-                                        <div class="author-comment">
-                                            <div class="back-title back-small-title">
-                                                <h2>3 Yorum</h2>
-                                            </div>
-                                            <ul>
-                                                <li>
-                                                    <div class="row">
-                                                        <div class="col-lg-1">
-                                                            <div class="image-comments"><img src="~/userimages/man1.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-11">
-                                                            <div class="dsc-comments">
-                                                                <h6>Neal Adams</h6>
-                                                                <span class="reply"> <span class="date">21 Temmuz 2022,
-                                                                    20:24</span></span>
-                                                                    <p>Yazıdaki önerileri günlük hayatımda uygulamaya başladım.
-                                                                        Özellikle küçük adımlarla ilerleme fikrini çok faydalı buldum.
-                                                                    </p>
-                                                                    <a href="#">Yanıtla</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="row">
-                                                            <div class="col-lg-1">
-                                                                <div class="image-comments"><img src="~/userimages/man2.jpeg" alt="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-11">
-                                                                <div class="dsc-comments">
-                                                                    <h6>Jim Séchen</h6>
-                                                                    <span class="reply"> <span class="date">21 Temmuz 2022,
-                                                                        22:44</span></span>
-                                                                        <p>Deneyimlerinizi paylaştığınız için teşekkürler. Bu konuda daha
-                                                                            fazla örnek içeren yazılarınızı da okumak isterim.</p>
-                                                                            <a href="#"> Yanıtla</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="row">
-                                                                    <div class="col-lg-1">
-                                                                        <div class="image-comments"><img src="~/userimages/man3.jpg" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-11">
-                                                                        <div class="dsc-comments">
-                                                                            <h6>Justin Case</h6>
-                                                                            <span class="reply"> <span class="date">21 Temmuz 2022,
-                                                                                17:44</span></span>
-                                                                                <p>Deneyimlerinizi paylaştığınız için teşekkürler. Bu konuda daha
-                                                                                    fazla örnek içeren yazılarınızı da okumak isterim.</p>
-                                                                                    <a href="#"> Yanıtla</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-
-                                                            <div class="back-blog-form">
-                                                                <div id="blog-form" class="blog-form">
-                                                                    <div class="back-title back-small-title">
-                                                                        <h2>Yorum Yap</h2>
-                                                                    </div>
-                                                                    <form>
-                                                                        <div class="row">
-                                                                            <div class="col-lg-12">
-                                                                                <div class="back-textarea">
-                                                                                    <textarea placeholder="Mesajınız"></textarea>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="back-input">
-                                                                                    <input type="text" name="name" placeholder="Adınız">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="col-lg-6">
-                                                                                <div class="back-input">
-                                                                                    <input type="email" name="email" placeholder="E-posta adresiniz">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="col-lg-12">
-                                                                                <div class="back-input">
-                                                                                    <input type="text" name="website" placeholder="Web siteniz">
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="col-lg-12">
-                                                                                <div class="back-check-box">
-                                                                                    <input type="checkbox" id="box-1"> Bir sonraki yorumum için adımı,
-                                                                                    e-posta adresimi ve web sitemi bu tarayıcıda kaydet.
-                                                                                </div>
-                                                                                <button type="submit" class="back-btn">Yorumu Gönder</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-lg-1">
+                                                <div class="image-comments"><img src="~/userimages/man2.jpeg" alt="">
                                                 </div>
-                                                <div class="col-lg-4">
-                                                    <div class="back-sidebar pl-30 md-pl-0 back-hero-area back-latest-posts back-whats-posts">
+                                            </div>
+                                            <div class="col-lg-11">
+                                                <div class="dsc-comments">
+                                                    <h6>Jim Séchen</h6>
+                                                    <span class="reply"> <span class="date">21 Temmuz 2022,
+                                                            22:44</span></span>
+                                                    <p>Deneyimlerinizi paylaştığınız için teşekkürler. Bu konuda daha
+                                                        fazla örnek içeren yazılarınızı da okumak isterim.</p>
+                                                    <a href="#"> Yanıtla</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-lg-1">
+                                                <div class="image-comments"><img src="~/userimages/man3.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-11">
+                                                <div class="dsc-comments">
+                                                    <h6>Justin Case</h6>
+                                                    <span class="reply"> <span class="date">21 Temmuz 2022,
+                                                            17:44</span></span>
+                                                    <p>Deneyimlerinizi paylaştığınız için teşekkürler. Bu konuda daha
+                                                        fazla örnek içeren yazılarınızı da okumak isterim.</p>
+                                                    <a href="#"> Yanıtla</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
 
-                                                        <form class="mb-44">
-                                                            <input type="text" name="input" placeholder="Ara...">
-                                                            <button> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                                                          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                                          stroke-linejoin="round" class="feather feather-search">
-                                                                <circle cx="11" cy="11" r="8"></circle>
-                                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                                            </svg> </button>
-                                                        </form>
+                            <div class="back-blog-form">
+                                <div id="blog-form" class="blog-form">
+                                    <div class="back-title back-small-title">
+                                        <h2>Yorum Yap</h2>
+                                    </div>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="back-textarea">
+                                                    <textarea placeholder="Mesajınız"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="back-input">
+                                                    <input type="text" name="name" placeholder="Adınız">
+                                                </div>
+                                            </div>
 
-                                                        <div class="back-title back-small-title">
-                                                            <h2>Bizimle İletişimde Kalın</h2>
-                                                        </div>
+                                            <div class="col-lg-6">
+                                                <div class="back-input">
+                                                    <input type="email" name="email" placeholder="E-posta adresiniz">
+                                                </div>
+                                            </div>
 
-                                                        <ul class="social-area">
-                                                            <li>
-                                                                <div><a href="#"><i class="fa-brands fa-facebook-f"></i></a> <span>Takipçi
-                                                                    <em>750</em></span></div>
-                                                                </li>
-                                                                <li>
-                                                                    <div><a href="#"><i class="fa-brands fa-twitter"></i></a> <span>Takipçi
-                                                                        <em>1236</em></span></div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div><a href="#"><i class="fa-brands fa-instagram"></i></a> <span>Beğeni
-                                                                            <em>523</em></span></div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div><a href="#"><i class="fa-brands fa-vimeo-v"></i></a> <span>Yorum
-                                                                                <em>790</em></span></div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div><a href="#"><i class="fa-brands fa-linkedin-in"></i></a> <span>Takipçi
-                                                                                    <em>1025</em></span></div>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <div><a href="#"><i class="fa-brands fa-youtube"></i></a> <span>Abone <em>590
-                                                                                        milyon</em></span></div>
-                                                                                    </li>
-                                                                                </ul>
-                                                                                <div class="back-title back-small-title pt-30">
-                                                                                    <h2>Son Haberler</h2>
-                                                                                </div>
-                                                                                <ul class="back-hero-bottom">
-                                                                                    <li>
-                                                                                        <div class="image-areas">
-                                                                                            <a href="#"><img src="~/images/LatestPost01.jpg" alt="Görsel"></a>
-                                                                                        </div>
-                                                                                        <div class="back-btm-content">
-                                                                                            <a href="#" class="back-cates">Siyaset</a>
-                                                                                            <h3><a href="#">Zamanı daha verimli kullanmanın yolları</a></h3>
-                                                                                            <ul>
-                                                                                                <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <div class="image-areas">
-                                                                                            <a href="#"><img src="~/images/LatestPost02.jpg" alt="Görsel"></a>
-                                                                                        </div>
-                                                                                        <div class="back-btm-content">
-                                                                                            <a href="#" class="back-cates">Müzik</a>
-                                                                                            <h3><a href="#">Müzik dinlemenin günlük yaşama katkıları</a></h3>
-                                                                                            <ul>
-                                                                                                <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <div class="image-areas">
-                                                                                            <a href="#"><img src="~/images/LatestPost03.jpg" alt="Görsel"></a>
-                                                                                        </div>
-                                                                                        <div class="back-btm-content">
-                                                                                            <a href="#" class="back-cates">Yaşam Tarzı</a>
-                                                                                            <h3><a href="#">Hayatınızı kolaylaştıracak 10 alışkanlık</a></h3>
-                                                                                            <ul>
-                                                                                                <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <div class="image-areas">
-                                                                                            <a href="#"><img src="~/images/LatestPost04.jpg" alt="Görsel"></a>
-                                                                                        </div>
-                                                                                        <div class="back-btm-content">
-                                                                                            <a href="#" class="back-cates">Seyahat</a>
-                                                                                            <h3><a href="#">Seyahat planlaması için 10 faydalı web sitesi</a></h3>
-                                                                                            <ul>
-                                                                                                <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                </ul>
-                                                                                <div class="back-add pt-15"> <img src="~/images/travel1.jpeg" alt="Seyahat görseli"> </div>
+                                            <div class="col-lg-12">
+                                                <div class="back-input">
+                                                    <input type="text" name="website" placeholder="Web siteniz">
+                                                </div>
+                                            </div>
 
-                                                                                <div class="back-title back-small-title pt-50">
-                                                                                    <h2>Bizi Takip Edin</h2>
-                                                                                </div>
-                                                                                <ul class="back-instragram">
-                                                                                    <li><a href="#"> <img src="~/images/travel1.jpeg" alt="Görsel"> <i
-                                                                                        class="fa-brands fa-instagram"></i></a></li>
-                                                                                        <li><a href="#"> <img src="~/images/roma.jpg" alt="Görsel"> <i
-                                                                                            class="fa-brands fa-instagram"></i></a></li>
-                                                                                            <li><a href="#"> <img src="~/images/castle1.jpg" alt="Görsel"> <i
-                                                                                                class="fa-brands fa-instagram"></i></a></li>
-                                                                                                <li><a href="#"> <img src="~/images/festival1.jpg" alt="Görsel"> <i
-                                                                                                    class="fa-brands fa-instagram"></i></a></li>
-                                                                                                    <li><a href="#"> <img src="~/images/roma2.jpg" alt="Görsel"> <i
-                                                                                                        class="fa-brands fa-instagram"></i></a></li>
-                                                                                                        <li><a href="#"> <img src="~/images/castle2.jpg" alt="Görsel"> <i
-                                                                                                            class="fa-brands fa-instagram"></i></a></li>
-                                                                                                        </ul>
+                                            <div class="col-lg-12">
+                                                <div class="back-check-box">
+                                                    <input type="checkbox" id="box-1"> Bir sonraki yorumum için adımı,
+                                                    e-posta adresimi ve web sitemi bu tarayıcıda kaydet.
+                                                </div>
+                                                <button type="submit" class="back-btn">Yorumu Gönder</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="back-sidebar pl-30 md-pl-0 back-hero-area back-latest-posts back-whats-posts">
 
-                                                                                                        <div class="back-title back-small-title pt-50">
-                                                                                                            <h2>Yorumlar</h2>
-                                                                                                        </div>
-                                                                                                        <div class="widget back-recent-comments">
-                                                                                                            <ul class="recent-comments">
-                                                                                                                <li>
-                                                                                                                    <span class="post-images"><img src="~/userimages/woman1.jpg"
-                                                                                                                                                       alt="Yorum yapan kişinin fotoğrafı"></span>
-                                                                                                                        <div class="titles">
-                                                                                                                            <h4>John Doe</h4>
-                                                                                                                            <span>14 Ocak 2022</span>
-                                                                                                                            <p>Yazının daha fazla örnek içermesi faydalı olurdu…</p>
-                                                                                                                        </div>
-                                                                                                                    </li>
-                                                                                                                    <li>
-                                                                                                                        <span class="post-images"><img src="~/userimages/woman3.jpg"
-                                                                                                                                                           alt="Yorum yapan kişinin fotoğrafı"></span>
-                                                                                                                            <div class="titles">
-                                                                                                                                <h4>Chauffina Carr</h4>
-                                                                                                                                <span>10 Nisan 2022</span>
-                                                                                                                                <p>Bu yöntemleri sık sık kullanıyoruz. Çok faydalı!</p>
-                                                                                                                            </div>
-                                                                                                                        </li>
-                                                                                                                        <li>
-                                                                                                                            <span class="post-images"><img src="~/userimages/woman5.jpg"
-                                                                                                                                                               alt="Yorum yapan kişinin fotoğrafı"></span>
-                                                                                                                                <div class="titles">
-                                                                                                                                    <h4>Jim Séchen</h4>
-                                                                                                                                    <span>16 Temmuz 2022</span>
-                                                                                                                                    <p>Yorum yapan herkese teşekkürler!</p>
-                                                                                                                                </div>
-                                                                                                                            </li>
-                                                                                                                        </ul>
-                                                                                                                    </div>
+                        <form class="mb-44">
+                            <input type="text" name="input" placeholder="Ara...">
+                            <button> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg> </button>
+                        </form>
 
-                                                                                                                    <div class="back-title back-small-title pt-50">
-                                                                                                                        <h2>Etiketler</h2>
-                                                                                                                    </div>
-                                                                                                                    <div class="widget widget-tags">
-                                                                                                                        <ul class="tags">
-                                                                                                                            <li><a href="#">Eğitim</a></li>
-                                                                                                                            <li><a href="#">SEO Pazarlaması</a></li>
-                                                                                                                            <li><a href="#">İş Dünyası</a></li>
-                                                                                                                            <li><a href="#">Çözümler</a></li>
-                                                                                                                            <li><a href="#">Kullanıcı Deneyimi</a></li>
-                                                                                                                            <li><a href="#">Vaka İncelemesi</a></li>
-                                                                                                                            <li><a href="#">Yaratıcılık</a></li>
-                                                                                                                            <li><a href="#">İçgörüler</a></li>
-                                                                                                                        </ul>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <!--================= Blog Section End Here =================-->
+                        <div class="back-title back-small-title">
+                            <h2>Bizimle İletişimde Kalın</h2>
+                        </div>
 
-                                                                                            </div>
+                        <ul class="social-area">
+                            <li>
+                                <div><a href="#"><i class="fa-brands fa-facebook-f"></i></a> <span>Takipçi
+                                        <em>750</em></span></div>
+                            </li>
+                            <li>
+                                <div><a href="#"><i class="fa-brands fa-twitter"></i></a> <span>Takipçi
+                                        <em>1236</em></span></div>
+                            </li>
+                            <li>
+                                <div><a href="#"><i class="fa-brands fa-instagram"></i></a> <span>Beğeni
+                                        <em>523</em></span></div>
+                            </li>
+                            <li>
+                                <div><a href="#"><i class="fa-brands fa-vimeo-v"></i></a> <span>Yorum
+                                        <em>790</em></span></div>
+                            </li>
+                            <li>
+                                <div><a href="#"><i class="fa-brands fa-linkedin-in"></i></a> <span>Takipçi
+                                        <em>1025</em></span></div>
+                            </li>
+                            <li>
+                                <div><a href="#"><i class="fa-brands fa-youtube"></i></a> <span>Abone <em>590
+                                            milyon</em></span></div>
+                            </li>
+                        </ul>
+                        <div class="back-title back-small-title pt-30">
+                            <h2>Son Haberler</h2>
+                        </div>
+                        <ul class="back-hero-bottom">
+                            <li>
+                                <div class="image-areas">
+                                    <a href="#"><img src="~/images/LatestPost01.jpg" alt="Görsel"></a>
+                                </div>
+                                <div class="back-btm-content">
+                                    <a href="#" class="back-cates">Siyaset</a>
+                                    <h3><a href="#">Zamanı daha verimli kullanmanın yolları</a></h3>
+                                    <ul>
+                                        <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-areas">
+                                    <a href="#"><img src="~/images/LatestPost02.jpg" alt="Görsel"></a>
+                                </div>
+                                <div class="back-btm-content">
+                                    <a href="#" class="back-cates">Müzik</a>
+                                    <h3><a href="#">Müzik dinlemenin günlük yaşama katkıları</a></h3>
+                                    <ul>
+                                        <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-areas">
+                                    <a href="#"><img src="~/images/LatestPost03.jpg" alt="Görsel"></a>
+                                </div>
+                                <div class="back-btm-content">
+                                    <a href="#" class="back-cates">Yaşam Tarzı</a>
+                                    <h3><a href="#">Hayatınızı kolaylaştıracak 10 alışkanlık</a></h3>
+                                    <ul>
+                                        <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-areas">
+                                    <a href="#"><img src="~/images/LatestPost04.jpg" alt="Görsel"></a>
+                                </div>
+                                <div class="back-btm-content">
+                                    <a href="#" class="back-cates">Seyahat</a>
+                                    <h3><a href="#">Seyahat planlaması için 10 faydalı web sitesi</a></h3>
+                                    <ul>
+                                        <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="back-add pt-15"> <img src="~/images/travel1.jpeg" alt="Seyahat görseli"> </div>
+
+                        <div class="back-title back-small-title pt-50">
+                            <h2>Bizi Takip Edin</h2>
+                        </div>
+                        <ul class="back-instragram">
+                            <li><a href="#"> <img src="~/images/travel1.jpeg" alt="Görsel"> <i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"> <img src="~/images/roma.jpg" alt="Görsel"> <i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"> <img src="~/images/castle1.jpg" alt="Görsel"> <i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"> <img src="~/images/festival1.jpg" alt="Görsel"> <i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"> <img src="~/images/roma2.jpg" alt="Görsel"> <i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"> <img src="~/images/castle2.jpg" alt="Görsel"> <i class="fa-brands fa-instagram"></i></a></li>
+                        </ul>
+
+                        <div class="back-title back-small-title pt-50">
+                            <h2>Yorumlar</h2>
+                        </div>
+                        <div class="widget back-recent-comments">
+                            <ul class="recent-comments">
+                                <li>
+                                    <span class="post-images"><img src="~/userimages/woman1.jpg" alt="Yorum yapan kişinin fotoğrafı"></span>
+                                    <div class="titles">
+                                        <h4>John Doe</h4>
+                                        <span>14 Ocak 2022</span>
+                                        <p>Yazının daha fazla örnek içermesi faydalı olurdu…</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="post-images"><img src="~/userimages/woman3.jpg" alt="Yorum yapan kişinin fotoğrafı"></span>
+                                    <div class="titles">
+                                        <h4>Chauffina Carr</h4>
+                                        <span>10 Nisan 2022</span>
+                                        <p>Bu yöntemleri sık sık kullanıyoruz. Çok faydalı!</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="post-images"><img src="~/userimages/woman5.jpg" alt="Yorum yapan kişinin fotoğrafı"></span>
+                                    <div class="titles">
+                                        <h4>Jim Séchen</h4>
+                                        <span>16 Temmuz 2022</span>
+                                        <p>Yorum yapan herkese teşekkürler!</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="back-title back-small-title pt-50">
+                            <h2>Etiketler</h2>
+                        </div>
+                        <div class="widget widget-tags">
+                            <ul class="tags">
+                                <li><a href="#">Eğitim</a></li>
+                                <li><a href="#">SEO Pazarlaması</a></li>
+                                <li><a href="#">İş Dünyası</a></li>
+                                <li><a href="#">Çözümler</a></li>
+                                <li><a href="#">Kullanıcı Deneyimi</a></li>
+                                <li><a href="#">Vaka İncelemesi</a></li>
+                                <li><a href="#">Yaratıcılık</a></li>
+                                <li><a href="#">İçgörüler</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================= Blog Section End Here =================-->
+
+</div>
