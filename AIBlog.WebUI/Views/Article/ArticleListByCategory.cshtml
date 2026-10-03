@@ -33,134 +33,78 @@
                         @await Component.InvokeAsync("_BlogDetailSearchAreComponentPartial")
 
                         @await Component.InvokeAsync("_BlogDetailSocialMediaComponentPartial")
-                                                <div class="back-title back-small-title pt-30">
-                                                    <h2>Son Haberler</h2>
-                                                </div>
-                                                <ul class="back-hero-bottom">
-                                                    <li>
-                                                        <div class="image-areas">
-                                                            <a href="#"><img src="~/images/LatestPost01.jpg" alt="Görsel"></a>
-                                                        </div>
-                                                        <div class="back-btm-content">
-                                                            <a href="#" class="back-cates">Siyaset</a>
-                                                            <h3><a href="#">Zamanı daha verimli kullanmanın yolları</a></h3>
-                                                            <ul>
-                                                                <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="image-areas">
-                                                            <a href="#"><img src="~/images/LatestPost02.jpg" alt="Görsel"></a>
-                                                        </div>
-                                                        <div class="back-btm-content">
-                                                            <a href="#" class="back-cates">Müzik</a>
-                                                            <h3><a href="#">Müzik dinlemenin günlük yaşama katkıları</a></h3>
-                                                            <ul>
-                                                                <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="image-areas">
-                                                            <a href="#"><img src="~/images/LatestPost03.jpg" alt="Görsel"></a>
-                                                        </div>
-                                                        <div class="back-btm-content">
-                                                            <a href="#" class="back-cates">Yaşam Tarzı</a>
-                                                            <h3><a href="#">Hayatınızı kolaylaştıracak 10 alışkanlık</a></h3>
-                                                            <ul>
-                                                                <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="image-areas">
-                                                            <a href="#"><img src="~/images/LatestPost04.jpg" alt="Görsel"></a>
-                                                        </div>
-                                                        <div class="back-btm-content">
-                                                            <a href="#" class="back-cates">Seyahat</a>
-                                                            <h3><a href="#">Seyahat planlaması için 10 faydalı web sitesi</a></h3>
-                                                            <ul>
-                                                                <li class="back-date">Yazar: <a href="#">Jon Deo </a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </li>
+                        @await Component.InvokeAsync("_BlogDetailLatestPostComponentPartial")
+                        
+                        <ul class="back-instragram">
+                            <li><a href="#"> <img src="~/images/travel1.jpeg" alt="Görsel"> <i
+                                class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"> <img src="~/images/roma.jpg" alt="Görsel"> <i
+                                    class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="#"> <img src="~/images/castle1.jpg" alt="Görsel"> <i
+                                        class="fa-brands fa-instagram"></i></a></li>
+                                        <li><a href="#"> <img src="~/images/festival1.jpg" alt="Görsel"> <i
+                                            class="fa-brands fa-instagram"></i></a></li>
+                                            <li><a href="#"> <img src="~/images/roma2.jpg" alt="Görsel"> <i
+                                                class="fa-brands fa-instagram"></i></a></li>
+                                                <li><a href="#"> <img src="~/images/castle2.jpg" alt="Görsel"> <i
+                                                    class="fa-brands fa-instagram"></i></a></li>
                                                 </ul>
-                                                <div class="back-add pt-15"> <img src="~/images/travel1.jpeg" alt="Seyahat görseli"> </div>
 
                                                 <div class="back-title back-small-title pt-50">
-                                                    <h2>Bizi Takip Edin</h2>
+                                                    <h2>Yorumlar</h2>
                                                 </div>
-                                                <ul class="back-instragram">
-                                                    <li><a href="#"> <img src="~/images/travel1.jpeg" alt="Görsel"> <i
-                                                        class="fa-brands fa-instagram"></i></a></li>
-                                                        <li><a href="#"> <img src="~/images/roma.jpg" alt="Görsel"> <i
-                                                            class="fa-brands fa-instagram"></i></a></li>
-                                                            <li><a href="#"> <img src="~/images/castle1.jpg" alt="Görsel"> <i
-                                                                class="fa-brands fa-instagram"></i></a></li>
-                                                                <li><a href="#"> <img src="~/images/festival1.jpg" alt="Görsel"> <i
-                                                                    class="fa-brands fa-instagram"></i></a></li>
-                                                                    <li><a href="#"> <img src="~/images/roma2.jpg" alt="Görsel"> <i
-                                                                        class="fa-brands fa-instagram"></i></a></li>
-                                                                        <li><a href="#"> <img src="~/images/castle2.jpg" alt="Görsel"> <i
-                                                                            class="fa-brands fa-instagram"></i></a></li>
-                                                                        </ul>
-
-                                                                        <div class="back-title back-small-title pt-50">
-                                                                            <h2>Yorumlar</h2>
-                                                                        </div>
-                                                                        <div class="widget back-recent-comments">
-                                                                            <ul class="recent-comments">
-                                                                                <li>
-                                                                                    <span class="post-images"><img src="~/userimages/woman1.jpg"
-                                                                                                                       alt="Yorum yapan kişinin fotoğrafı"></span>
-                                                                                        <div class="titles">
-                                                                                            <h4>John Doe</h4>
-                                                                                            <span>14 Ocak 2022</span>
-                                                                                            <p>Yazının daha fazla örnek içermesi faydalı olurdu…</p>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <span class="post-images"><img src="~/userimages/woman3.jpg"
-                                                                                                                           alt="Yorum yapan kişinin fotoğrafı"></span>
-                                                                                            <div class="titles">
-                                                                                                <h4>Chauffina Carr</h4>
-                                                                                                <span>10 Nisan 2022</span>
-                                                                                                <p>Bu yöntemleri sık sık kullanıyoruz. Çok faydalı!</p>
-                                                                                            </div>
-                                                                                        </li>
-                                                                                        <li>
-                                                                                            <span class="post-images"><img src="~/userimages/woman5.jpg"
-                                                                                                                               alt="Yorum yapan kişinin fotoğrafı"></span>
-                                                                                                <div class="titles">
-                                                                                                    <h4>Jim Séchen</h4>
-                                                                                                    <span>16 Temmuz 2022</span>
-                                                                                                    <p>Yorum yapan herkese teşekkürler!</p>
-                                                                                                </div>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-
-                                                                                    <div class="back-title back-small-title pt-50">
-                                                                                        <h2>Etiketler</h2>
-                                                                                    </div>
-                                                                                    <div class="widget widget-tags">
-                                                                                        <ul class="tags">
-                                                                                            <li><a href="#">Eğitim</a></li>
-                                                                                            <li><a href="#">SEO Pazarlaması</a></li>
-                                                                                            <li><a href="#">İş Dünyası</a></li>
-                                                                                            <li><a href="#">Çözümler</a></li>
-                                                                                            <li><a href="#">Kullanıcı Deneyimi</a></li>
-                                                                                            <li><a href="#">Vaka İncelemesi</a></li>
-                                                                                            <li><a href="#">Yaratıcılık</a></li>
-                                                                                            <li><a href="#">İçgörüler</a></li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                <div class="widget back-recent-comments">
+                                                    <ul class="recent-comments">
+                                                        <li>
+                                                            <span class="post-images"><img src="~/userimages/woman1.jpg"
+                                                                                               alt="Yorum yapan kişinin fotoğrafı"></span>
+                                                                <div class="titles">
+                                                                    <h4>John Doe</h4>
+                                                                    <span>14 Ocak 2022</span>
+                                                                    <p>Yazının daha fazla örnek içermesi faydalı olurdu…</p>
                                                                 </div>
-                                                                <!--================= Blog Section End Here =================-->
-
+                                                            </li>
+                                                            <li>
+                                                                <span class="post-images"><img src="~/userimages/woman3.jpg"
+                                                                                                   alt="Yorum yapan kişinin fotoğrafı"></span>
+                                                                    <div class="titles">
+                                                                        <h4>Chauffina Carr</h4>
+                                                                        <span>10 Nisan 2022</span>
+                                                                        <p>Bu yöntemleri sık sık kullanıyoruz. Çok faydalı!</p>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="post-images"><img src="~/userimages/woman5.jpg"
+                                                                                                       alt="Yorum yapan kişinin fotoğrafı"></span>
+                                                                        <div class="titles">
+                                                                            <h4>Jim Séchen</h4>
+                                                                            <span>16 Temmuz 2022</span>
+                                                                            <p>Yorum yapan herkese teşekkürler!</p>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
+
+                                                            <div class="back-title back-small-title pt-50">
+                                                                <h2>Etiketler</h2>
+                                                            </div>
+                                                            <div class="widget widget-tags">
+                                                                <ul class="tags">
+                                                                    <li><a href="#">Eğitim</a></li>
+                                                                    <li><a href="#">SEO Pazarlaması</a></li>
+                                                                    <li><a href="#">İş Dünyası</a></li>
+                                                                    <li><a href="#">Çözümler</a></li>
+                                                                    <li><a href="#">Kullanıcı Deneyimi</a></li>
+                                                                    <li><a href="#">Vaka İncelemesi</a></li>
+                                                                    <li><a href="#">Yaratıcılık</a></li>
+                                                                    <li><a href="#">İçgörüler</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--================= Blog Section End Here =================-->
+
+                                    </div>
