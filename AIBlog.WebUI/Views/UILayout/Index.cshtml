@@ -2,4 +2,26 @@
     Layout = null;
 }
 
-<h3>Merhaba</h3>
+<!DOCTYPE html>
+<html lang="tr">
+@await Component.InvokeAsync("_LayoutHeadComponentPartial")
+
+<body>
+    @await Component.InvokeAsync("_LayoutRightSideBarComponentPartial")
+    <header>
+        @await Component.InvokeAsync("_LayoutHeaderComponentPartial")
+    </header>
+    @RenderBody()
+    @await Component.InvokeAsync("_LayoutFooterComponentPartial")
+        
+    <!--================= Scroll to Top Start =================-->
+    <div id="backscrollUp">
+        <span aria-hidden="true" class="fi-rr-arrow-small-up"></span>
+    </div>
+    <!--================= Scroll to Top End =================-->
+
+
+    @await Component.InvokeAsync("_LayoutScriptsComponentPartial")
+</body>
+
+</html>

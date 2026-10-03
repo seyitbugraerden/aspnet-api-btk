@@ -4,40 +4,44 @@
 
 <!DOCTYPE html>
 <html lang="tr">
-    @await Component.InvokeAsync("_LayoutHeadComponentPartial")
-    <body> 
-        @await Component.InvokeAsync("_LayoutRightSideBarComponentPartial")
+@await Component.InvokeAsync("_LayoutHeadComponentPartial")
 
+<body>
+    @await Component.InvokeAsync("_LayoutRightSideBarComponentPartial")
+    <header>
         @await Component.InvokeAsync("_LayoutHeaderComponentPartial")
-
-        <div class="back-wrapper">
-            <div class="back-hero-area md-mt-40">
-                <div class="container">
-                    <div class="row">
-                        @await Component.InvokeAsync("_DefaultSliderComponentPartial")
-                        @await Component.InvokeAsync("_DefaultFeatureComponentPartial")
-                    </div>
-                    @await Component.InvokeAsync("_DefaultGetCategoriesWithLastArticleComponentPartial")
-                       
+    </header>
+    <div class="back-wrapper">
+        <div class="back-hero-area md-mt-40">
+            <div class="container">
+                <div class="row">
+                    @await Component.InvokeAsync("_DefaultSliderComponentPartial")
+                    @await Component.InvokeAsync("_DefaultFeatureComponentPartial")
                 </div>
+                @await Component.InvokeAsync("_DefaultGetCategoriesWithLastArticleComponentPartial")
+                       
             </div>
-            @await Component.InvokeAsync("_DefaultTrendingStoriesArticlesComponentPartial")
-            @await Component.InvokeAsync("_DefaultLatestPostsComponentPartial")
-            <div class="back-add text-center"><div class="container"><img src="~/template/assets/images/add2.jpg" alt="add-image"></div></div>
-            @await Component.InvokeAsync("_SubFeatureComponentPartial")
-            @await Component.InvokeAsync("_DefaultTradingVideoComponentPartial")
-            @await Component.InvokeAsync("_SecondFeaturePostComponentPartial")
-            @await Component.InvokeAsync("_DefaultSubSliderComponentPartial")
-        </div>        
-        @await Component.InvokeAsync("_LayoutFooterComponentPartial")
+        </div>
+        @await Component.InvokeAsync("_DefaultTrendingStoriesArticlesComponentPartial")
+        @await Component.InvokeAsync("_DefaultLatestPostsComponentPartial")
+        <div class="back-add text-center">
+            <div class="container"><img src="~/template/assets/images/add2.jpg" alt="add-image"></div>
+        </div>
+        @await Component.InvokeAsync("_SubFeatureComponentPartial")
+        @await Component.InvokeAsync("_DefaultTradingVideoComponentPartial")
+        @await Component.InvokeAsync("_SecondFeaturePostComponentPartial")
+        @await Component.InvokeAsync("_DefaultSubSliderComponentPartial")
+    </div>
+    @await Component.InvokeAsync("_LayoutFooterComponentPartial")
         
-        <!--================= Scroll to Top Start =================-->
-        <div id="backscrollUp">
-            <span aria-hidden="true" class="fi-rr-arrow-small-up"></span>
-        </div> 
-        <!--================= Scroll to Top End =================-->
+    <!--================= Scroll to Top Start =================-->
+    <div id="backscrollUp">
+        <span aria-hidden="true" class="fi-rr-arrow-small-up"></span>
+    </div>
+    <!--================= Scroll to Top End =================-->
 
 
-@await Component.InvokeAsync("_LayoutScriptsComponentPartial")
-    </body>
+    @await Component.InvokeAsync("_LayoutScriptsComponentPartial")
+</body>
+
 </html>
