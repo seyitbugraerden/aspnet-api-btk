@@ -19,19 +19,8 @@
 
                             @await Component.InvokeAsync("_BlogDetailTagComponentPartial")
 
-                            <a href="#" class="post-author">
-                                <div class="avatar">
-                                    <img src="~/userimages/woman1.jpg" alt="">
-                                </div>
-                                <div class="info">
-                                    <h4 class="name">Sara Mening</h4>
-                                    <p>Günlük yaşam, seyahat ve kişisel gelişim üzerine yazılar hazırlıyorum. Yeni
-                                        deneyimleri ve hayatı kolaylaştıran fikirleri okurlarla paylaşmayı seviyorum.
-                                    </p>
-                                    <span class="designation">Sara Mening tarafından yazılan tüm yazılar</span>
-                                </div>
-                            </a>
-
+                            @await Component.InvokeAsync("_BlogDetailAuthorComponentArtial")
+                            
                             <div class="single-nav">
                                 <div class="back-prev"> <a href="#"><i class="fa-solid fa-arrow-right"></i> Önceki Yazı
                                     <em>Sosyal medya stratejileri</em></a> </div>
