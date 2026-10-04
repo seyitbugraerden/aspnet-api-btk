@@ -29,30 +29,26 @@ namespace AIBlog.WebApi.Controller
             return Ok(dto);
         }
         [HttpPost]
-        public IActionResult CreateArticle(Article article)
+        public IActionResult CreateArticle(CreateArticleDto createArticleDto)
         {
-            article.CreatedDate = DateTime.Now;
-            _context.Articles.Add(article);
+            createArticleDto.CreatedDate = DateTime.Now;
+            var values = _mapper.Map<Article>(createArticleDto);
+            _context.Articles.Add(values);
             _context.SaveChanges();
-            return Ok(article);
+            return Ok("Ekleme işlemi başarılı");
         }
         [HttpDelete("{id}")]
         public IActionResult DeleteArticle(int id)
         {
-            var article = _context.Articles.Find(id);
-            if (article == null)
-            {
-                return NotFound();
-            }
-            _context.Articles.Remove(article);
-            _context.SaveChanges();
-            return Ok(article);
+           var value = _context.Articles.Find(id);
+            return Ok(_mapper.Map<GetArticleById>(value));
         }
 
         [HttpPut]
-        public IActionResult UpdateArticle(Article article)
+        public IActionResult UpdateArticle(UpdateArticleDto updateArticleDto)
         {
-            _context.Articles.Update(article);
+            var value = _mapper.Map<Article>(updateArticleDto);
+            _context.Articles.Update(value);
             _context.SaveChanges();
             return Ok("Güncelleme işlemi başarılı");
         }

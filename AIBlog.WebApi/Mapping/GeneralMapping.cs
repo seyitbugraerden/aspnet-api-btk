@@ -14,6 +14,9 @@ namespace AIBlog.WebApi.Mapping
                     opt => opt.MapFrom(src => src.Category != null
                         ? src.Category.CategoryName
                         : string.Empty));
+            CreateMap<CreateArticleDto, Article>().ReverseMap();
+            CreateMap<Article, GetArticleById>().ReverseMap();
+            CreateMap<Article, UpdateArticleDto>().ReverseMap();
         }
     }
 }
