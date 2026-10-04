@@ -6,6 +6,7 @@ namespace AIBlog.WebApi.Entities
     {
         [Key]
         public int CategoryId { get; set; }
-        public required string CategoryName { get; set; }
+        public string CategoryName { get; set; }
+        public List<Article> Articles { get; set; }
     }
 }

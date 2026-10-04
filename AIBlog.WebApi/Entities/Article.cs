@@ -13,5 +13,7 @@ namespace AIBlog.WebApi.Entities
         public string MainImageUrl { get; set; }
         public string Content { get; set; }
         public DateTime CreatedDate { get; set; }
+        public int? CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }
