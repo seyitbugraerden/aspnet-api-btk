@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AIBlog.WebUI.Dtos.ArticleDtos
+namespace AIBlog.WebApi.Dtos.ArticleDtos
 {
-    public class ResultArticleDto
+    public class ResultArticleWithCategoryDto
     {
         public int ArticleId { get; set; }
         public string Title { get; set; }
@@ -13,6 +13,7 @@ namespace AIBlog.WebUI.Dtos.ArticleDtos
         public string MainImageUrl { get; set; }
         public string Content { get; set; }
         public DateTime CreatedDate { get; set; }
+        public int? CategoryId { get; set; }
         public string CategoryName { get; set; }
     }
 }

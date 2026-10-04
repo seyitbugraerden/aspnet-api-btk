@@ -1,8 +1,10 @@
 using AIBlog.WebApi.Context;
+using AIBlog.WebApi.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<BlogAIContext>();
+builder.Services.AddAutoMapper(cfg => { }, typeof(GeneralMapping));
 //Swagger Günceller
 builder.Services.AddControllers();
 

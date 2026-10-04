@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
 using AIBlog.WebApi.Context;
+using AIBlog.WebApi.Dtos.ArticleDtos;
 using AIBlog.WebApi.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace AIBlog.WebApi.Controller
 {
@@ -15,17 +13,20 @@ namespace AIBlog.WebApi.Controller
     public class ArticlesController : ControllerBase
     {
         private readonly BlogAIContext _context;
+        private readonly IMapper _mapper;
 
-        public ArticlesController(BlogAIContext context)
+        public ArticlesController(BlogAIContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public IActionResult ArticleList()
         {
-            var articles = _context.Articles.ToList();
-            return Ok(articles);
+            var values = _context.Articles.Include(x => x.Category).ToList();
+            var dto = _mapper.Map<List<ResultArticleWithCategoryDto>>(values);
+            return Ok(dto);
         }
         [HttpPost]
         public IActionResult CreateArticle(Article article)
