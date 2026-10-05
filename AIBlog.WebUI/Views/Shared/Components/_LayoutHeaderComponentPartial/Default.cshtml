@@ -1,3 +1,5 @@
+@model List<ResultArticleDto>
+
 <header id="back-header" class="back-header">
             <!--================= Topbar Section Start Here =================-->
             <div class="toolbar-area hidden-md">
@@ -5,12 +7,17 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
                             <div class="toolbar-text">
-                                <div class="latest-news-title">SON HABERLER</div>
+                                <div class="latest-news-title">SON MAKALELER</div>
                                 <div class="latest-news">
                                     <div class="back-topbar-slider owl-carousel">
-                                        <div>Çünkü yalnızca gerçeği hak ediyorsunuz</div>
-                                        <div>Pandeminin ruh sağlığına etkisi: Küresel bir bakış</div>
-                                        <div>Ülkelere göre alkollü araç kullanma yasaları ve gözaltı uygulamaları</div>
+                                        @foreach (var article in Model)
+                                        {
+                                            <div>@article.Title</div>
+                                        }
+                                        @if (Model.Count == 0)
+                                        {
+                                            <div>Henüz makale bulunmuyor.</div>
+                                        }
                                     </div>
                                 </div>
                             </div>
