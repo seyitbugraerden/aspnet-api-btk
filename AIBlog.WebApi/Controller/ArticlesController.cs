@@ -40,7 +40,7 @@ namespace AIBlog.WebApi.Controller
         [HttpDelete("{id}")]
         public IActionResult DeleteArticle(int id)
         {
-           var value = _context.Articles.Find(id);
+            var value = _context.Articles.Find(id);
             return Ok(_mapper.Map<GetArticleById>(value));
         }
 
@@ -51,6 +51,13 @@ namespace AIBlog.WebApi.Controller
             _context.Articles.Update(value);
             _context.SaveChanges();
             return Ok("Güncelleme işlemi başarılı");
+        }
+
+        [HttpGet("GetArticlesFeatureSliderByTrue")]
+        public IActionResult GetArticlesFeatureSliderByTrue()
+        {
+            var values = _context.Articles.Where(x => x.IsFeatureSlider == true).Include(x => x.Category).ToList();
+            return Ok(value: _mapper.Map<List<ResultArticleWithHomeCategoryDto>>(values));
         }
     }
 }
