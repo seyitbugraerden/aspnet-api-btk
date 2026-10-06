@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AIBlog.WebApi.Context;
 using AIBlog.WebApi.Entities;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using AIBlog.WebApi.Dtos.ArticleDtos;
 
 namespace AIBlog.WebApi.Controller
 {
@@ -14,11 +16,13 @@ namespace AIBlog.WebApi.Controller
     public class CategoriesController : ControllerBase
     {
         private readonly BlogAIContext _context;
+        private readonly IMapper _mapper;
         // DB'den veri okuma işlemleri için BlogAIContext sınıfını kullanıyoruz. Bu sınıf, veritabanı bağlantısı ve veri erişimi için gerekli yapılandırmayı içerir.
 
-        public CategoriesController(BlogAIContext context)
+        public CategoriesController(BlogAIContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         // Dependency Injection (Bağımlılık Enjeksiyonu) kullanarak BlogAIContext sınıfını CategoriesController'a enjekte ediyoruz. Bu sayede veritabanı işlemlerini gerçekleştirebiliriz.
 
@@ -26,7 +30,7 @@ namespace AIBlog.WebApi.Controller
         public IActionResult CategoryList()
         {
             var categories = _context.Categories.ToList();
-            return Ok(categories);
+            return Ok(_mapper.Map<List<HomeCategoryDto>>(categories));
         }
         [HttpGet("{id:int}")]
         public IActionResult GetCategory([FromRoute] int id)

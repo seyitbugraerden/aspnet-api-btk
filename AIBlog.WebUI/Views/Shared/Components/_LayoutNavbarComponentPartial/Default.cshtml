@@ -1,21 +1,23 @@
-<div class="menu-part">
-    <div class="container">
-        <!--================= Back Menu Start Here =================-->
-        <div class="back-main-menu">
-                   
-            <nav>
-                <!--================= Menu Toggle btn =================-->
-                <div class="menu-toggle">
-                    <div class="logo"><a href="index.html" class="logo-text"> <img class="back-logo-dark"
-                                                                                       src="~/template/assets/images/logo.png" alt="logo"> <img class="back-logo-light"
-                                                                                 src="~/template/assets/images/light-logo.png" alt="logo"> </a></div>
+@model List<AIBlog.WebUI.Dtos.ArticleDtos.ResultHomeCategoriesDto>
+
+    <div class="menu-part">
+        <div class="container">
+            <!--================= Back Menu Start Here =================-->
+            <div class="back-main-menu">
+
+                <nav>
+                    <!--================= Menu Toggle btn =================-->
+                    <div class="menu-toggle">
+                        <div class="logo"><a href="index.html" class="logo-text"> <img class="back-logo-dark"
+                                src="~/template/assets/images/logo.png" alt="logo"> <img class="back-logo-light"
+                                src="~/template/assets/images/light-logo.png" alt="logo"> </a></div>
 
                         <div class="searchbar-part back-search-mobile">
                             <ul>
                                 <li class="back-dark-light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                                 class="feather feather-sun back-go-light1">
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-sun back-go-light1">
                                     <circle cx="12" cy="12" r="5"></circle>
                                     <line x1="12" y1="1" x2="12" y2="3"></line>
                                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -33,139 +35,13 @@
                                 </svg>
                             </li>
                             <li class="back_search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                         stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg></li>
-                            <li class="back-sign"><a href="login.html">Giriş Yap</a></li>
-                            <li id="nav-expanders" class="nav-expander bar">
-                                <span class="back-hum1"></span>
-                                <span class="back-hum2"></span>
-                                <span class="back-hum3"></span>
-                            </li>
-                        </ul>
-                        <form class="search-form">
-                            <input type="text" class="form-input" placeholder="Burada arayın">
-                            <button type="submit" class="form-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                     stroke-linejoin="round" class="feather feather-search">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-
-                    <button type="button" id="menu-btn">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <!--================= Menu Structure =================-->
-                <div class="back-inner-menus">
-                    <ul id="backmenu" class="back-menus back-sub-shadow">
-                        <li> <a href="#">Ana Sayfa</a>
-                            <ul>
-                                <li> <a href="index.html">Ana Sayfa 1</a></li>
-                                <li> <a href="index-two.html">Ana Sayfa 2</a></li>
-                                <li> <a href="index-three.html">Ana Sayfa 3</a></li>
-                            </ul>
-                        </li>
-                        <li> <a href="#">Sayfalar</a>
-                            <ul>
-                                <li> <a href="about.html">Hakkımızda</a></li>
-                                <li> <a href="team.html">Ekibimiz</a></li>
-                                <li> <a href="contact.html">İletişim</a></li>
-                                <li> <a href="author.html">Yazar</a></li>
-                                <li> <a href="login.html">Giriş Yap</a></li>
-                                <li> <a href="registration.html">Kayıt Ol</a></li>
-                                <li> <a href="404.html">404 - Sayfa Bulunamadı</a></li>
-                            </ul>
-                        </li>
-                        <li> <a href="#">Kategoriler</a>
-                            <ul>
-                                <li><a href="politics.html">Siyaset</a></li>
-                                <li><a href="technology.html">Teknoloji</a></li>
-                                <li><a href="health.html">Sağlık</a></li>
-                                <li><a href="travel.html">Seyahat</a></li>
-                                <li><a href="lifestyle.html">Yaşam Tarzı</a></li>
-                                <li><a href="sports.html">Spor</a></li>
-                            </ul>
-                        </li>
-                        <li> <a href="blog.html">Blog</a>
-                            <ul>
-                                <li><a href="blog.html">Blog</a>
-                                    <ul>
-                                        <li><a href="blog.html">Klasik</a></li>
-                                        <li><a href="blog-left-sidebar.html">Sol Kenar Çubuğu</a></li>
-                                        <li><a href="blog-right-sidebar.html">Sağ Kenar Çubuğu</a></li>
-                                        <li><a href="blog-fullwidth.html">Tam Genişlik</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog-details.html">Blog Detayı</a>
-                                    <ul>
-                                        <li><a href="blog-details.html">Klasik</a></li>
-                                        <li><a href="blog-details-left.html">Sol Kenar Çubuğu</a></li>
-                                        <li><a href="blog-details-right.html">Sağ Kenar Çubuğu</a></li>
-                                        <li><a href="blog-details-full.html">Tam Genişlik</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li> <a href="#">Yazılar</a>
-                            <ul>
-                                <li><a href="standard-post.html">Standart Yazı</a></li>
-                                <li><a href="gallery-post.html">Galeri Yazısı</a></li>
-                                <li><a href="video-post.html">Video Yazısı</a></li>
-                                <li><a href="audio-post.html">Sesli Yazı</a></li>
-                                <li><a href="quote-post.html">Alıntı Yazısı</a></li>
-                                <li><a href="aside-post.html">Kısa Not</a></li>
-                                <li><a href="link-post.html">Bağlantı Yazısı</a></li>
-                                <li><a href="#">Yazı Kenar Çubuğu</a>
-                                    <ul>
-                                        <li><a href="blog-details-left.html">Sol Kenar Çubuğu</a></li>
-                                        <li><a href="blog-details-right.html">Sağ Kenar Çubuğu</a></li>
-                                        <li><a href="blog-details-full.html">Kenar Çubuğu Yok</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="multiple-authors.html">Birden Fazla Yazar</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                                
-                    <div class="searchbar-part back-search-desktop">
-                        <ul>
-                            <li class="back-dark-light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                             stroke-linecap="round" stroke-linejoin="round"
-                                                             class="feather feather-sun back-go-light">
-                                <circle cx="12" cy="12" r="5"></circle>
-                                <line x1="12" y1="1" x2="12" y2="3"></line>
-                                <line x1="12" y1="21" x2="12" y2="23"></line>
-                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                <line x1="1" y1="12" x2="3" y2="12"></line>
-                                <line x1="21" y1="12" x2="23" y2="12"></line>
-                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                 stroke-linejoin="round" class="feather feather-moon back-go-dark">
-                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                            </svg>
-                        </li>
-                        <li class="back_search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                     stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg></li>
                         <li class="back-sign"><a href="login.html">Giriş Yap</a></li>
-                        <li id="nav-expander" class="nav-expander bar">
+                        <li id="nav-expanders" class="nav-expander bar">
                             <span class="back-hum1"></span>
                             <span class="back-hum2"></span>
                             <span class="back-hum3"></span>
@@ -183,9 +59,135 @@
                         </button>
                     </form>
                 </div>
+
+                <button type="button" id="menu-btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-        </nav>
+            <!--================= Menu Structure =================-->
+            <div class="back-inner-menus">
+                <ul id="backmenu" class="back-menus back-sub-shadow">
+                    <li> <a href="#">Ana Sayfa</a>
+                        <ul>
+                            <li> <a href="index.html">Ana Sayfa 1</a></li>
+                            <li> <a href="index-two.html">Ana Sayfa 2</a></li>
+                            <li> <a href="index-three.html">Ana Sayfa 3</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="#">Sayfalar</a>
+                        <ul>
+                            <li> <a href="about.html">Hakkımızda</a></li>
+                            <li> <a href="team.html">Ekibimiz</a></li>
+                            <li> <a href="contact.html">İletişim</a></li>
+                            <li> <a href="author.html">Yazar</a></li>
+                            <li> <a href="login.html">Giriş Yap</a></li>
+                            <li> <a href="registration.html">Kayıt Ol</a></li>
+                            <li> <a href="404.html">404 - Sayfa Bulunamadı</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="#">Kategoriler</a>
+                        <ul>
+                            @foreach (var category in Model)
+                            {
+                                <li>
+                                    <a href="#">@category.CategoryName</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                    <li> <a href="blog.html">Blog</a>
+                        <ul>
+                            <li><a href="blog.html">Blog</a>
+                                <ul>
+                                    <li><a href="blog.html">Klasik</a></li>
+                                    <li><a href="blog-left-sidebar.html">Sol Kenar Çubuğu</a></li>
+                                    <li><a href="blog-right-sidebar.html">Sağ Kenar Çubuğu</a></li>
+                                    <li><a href="blog-fullwidth.html">Tam Genişlik</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="blog-details.html">Blog Detayı</a>
+                                <ul>
+                                    <li><a href="blog-details.html">Klasik</a></li>
+                                    <li><a href="blog-details-left.html">Sol Kenar Çubuğu</a></li>
+                                    <li><a href="blog-details-right.html">Sağ Kenar Çubuğu</a></li>
+                                    <li><a href="blog-details-full.html">Tam Genişlik</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li> <a href="#">Yazılar</a>
+                        <ul>
+                            <li><a href="standard-post.html">Standart Yazı</a></li>
+                            <li><a href="gallery-post.html">Galeri Yazısı</a></li>
+                            <li><a href="video-post.html">Video Yazısı</a></li>
+                            <li><a href="audio-post.html">Sesli Yazı</a></li>
+                            <li><a href="quote-post.html">Alıntı Yazısı</a></li>
+                            <li><a href="aside-post.html">Kısa Not</a></li>
+                            <li><a href="link-post.html">Bağlantı Yazısı</a></li>
+                            <li><a href="#">Yazı Kenar Çubuğu</a>
+                                <ul>
+                                    <li><a href="blog-details-left.html">Sol Kenar Çubuğu</a></li>
+                                    <li><a href="blog-details-right.html">Sağ Kenar Çubuğu</a></li>
+                                    <li><a href="blog-details-full.html">Kenar Çubuğu Yok</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="multiple-authors.html">Birden Fazla Yazar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="searchbar-part back-search-desktop">
+                    <ul>
+                        <li class="back-dark-light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-sun back-go-light">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-moon back-go-dark">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </li>
+                    <li class="back_search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg></li>
+                <li class="back-sign"><a href="login.html">Giriş Yap</a></li>
+                <li id="nav-expander" class="nav-expander bar">
+                    <span class="back-hum1"></span>
+                    <span class="back-hum2"></span>
+                    <span class="back-hum3"></span>
+                </li>
+            </ul>
+            <form class="search-form">
+                <input type="text" class="form-input" placeholder="Burada arayın">
+                <button type="submit" class="form-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-search">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
     </div>
-    <!--=================  Back Menu End Here  =================-->
+</nav>
+</div>
+<!--=================  Back Menu End Here  =================-->
 </div>
 </div>
