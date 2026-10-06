@@ -65,6 +65,18 @@ namespace AIBlog.WebApi.Controller
         {
             var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Teknoloji").OrderByDescending(x => x.ArticleId).FirstOrDefault();
             return Ok(_mapper.Map<ResultArticleSingleTech>(values));
-}
         }
+        [HttpGet("GetLastSportArticles")]
+        public IActionResult GetLastSportArticles()
+        {
+            var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Spor").OrderByDescending(x => x.ArticleId).FirstOrDefault();
+            return Ok(_mapper.Map<ResultArticleSingleSport>(values));
+        }
+        [HttpGet("GetLastFoodArticles")]
+        public IActionResult GetLastFoodArticles()
+        {
+            var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Yemek").OrderByDescending(x => x.ArticleId).FirstOrDefault();
+            return Ok(_mapper.Map<ResultArticleSingleFood>(values));
+        }
+    }
 }

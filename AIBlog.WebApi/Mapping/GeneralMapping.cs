@@ -30,6 +30,18 @@ namespace AIBlog.WebApi.Mapping
                     opt => opt.MapFrom(src => src.Category != null
                         ? src.Category.CategoryName
                         : string.Empty));
+            CreateMap<Article, ResultArticleSingleSport>()
+    .ForMember(
+        dest => dest.CategoryName,
+        opt => opt.MapFrom(src => src.Category != null
+            ? src.Category.CategoryName
+            : string.Empty));
+            CreateMap<Article, ResultArticleSingleFood>()
+    .ForMember(
+        dest => dest.CategoryName,
+        opt => opt.MapFrom(src => src.Category != null
+            ? src.Category.CategoryName
+            : string.Empty));
         }
     }
 }
