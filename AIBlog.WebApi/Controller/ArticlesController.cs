@@ -59,5 +59,12 @@ namespace AIBlog.WebApi.Controller
             var values = _context.Articles.Where(x => x.IsFeatureSlider == true).Include(x => x.Category).ToList();
             return Ok(value: _mapper.Map<List<ResultArticleWithHomeCategoryDto>>(values));
         }
-    }
+
+        [HttpGet("GetLastTechnologyArticles")]
+        public IActionResult GetLastTechnologyArticles()
+        {
+            var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Teknoloji").OrderByDescending(x => x.ArticleId).FirstOrDefault();
+            return Ok(_mapper.Map<ResultArticleSingleTech>(values));
+}
+        }
 }

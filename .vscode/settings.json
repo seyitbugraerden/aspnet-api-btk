@@ -3,6 +3,12 @@
     "*.cshtml": "aspnetcorerazor",
     "*.razor": "aspnetcorerazor"
   },
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  },
   "[aspnetcorerazor]": {
     "editor.defaultFormatter": "AdemUnal.project-toolkit",
     "editor.formatOnSave": true,
