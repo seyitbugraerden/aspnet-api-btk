@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "cshtml": {
+    "enabled": true,
+    "html": true,
+    "razor": true,
+    "csharp": true,
+    "javascript": true,
+    "typescript": true,
+    "json": true,
+    "css": true,
+    "htmlInTemplateLiterals": true
+  },
+  "style": {
+    "tabWidth": 4,
+    "useTabs": false,
+    "printWidth": 120,
+    "maxConsecutiveBlankLines": 1
+  },
+  "safety": {
+    "verifyIdempotence": true
+  }
+}

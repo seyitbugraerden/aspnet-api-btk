@@ -1,0 +1,17 @@
+{
+  "files.associations": {
+    "*.cshtml": "aspnetcorerazor",
+    "*.razor": "aspnetcorerazor"
+  },
+  "[aspnetcorerazor]": {
+    "editor.defaultFormatter": "AdemUnal.project-toolkit",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnPaste": false,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  },
+  "razor.format.attributeIndentStyle": "indentByOne",
+  "razor.format.codeBlockBraceOnNextLine": true
+}

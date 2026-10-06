@@ -1,0 +1,29 @@
+{
+  "presets": [
+    {
+      "name": "Module Folders",
+      "description": "Default modular project folders.",
+      "askModuleName": true,
+      "folders": [
+        "DTO",
+        "Models",
+        "Repositories",
+        "Features",
+        "Features/Commands",
+        "Features/Queries",
+        "Services",
+        "Cache",
+        "Enums"
+      ]
+    },
+    {
+      "name": "CQRS Folders",
+      "description": "Create Commands and Queries folders inside the selected folder.",
+      "askModuleName": false,
+      "folders": [
+        "Commands",
+        "Queries"
+      ]
+    }
+  ]
+}

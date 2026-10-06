@@ -1,0 +1,22 @@
+{
+  "name": "Sample C# Class",
+  "description": "Create a simple C# class.",
+  "inputs": [
+    {
+      "name": "className",
+      "label": "Class name",
+      "default": "ProductService"
+    }
+  ],
+  "vars": {
+    "class": "{{className|pascal}}"
+  },
+  "files": [
+    {
+      "path": "{{class}}.cs",
+      "source": "Class.cs.tpl",
+      "open": true,
+      "overwrite": false
+    }
+  ]
+}
