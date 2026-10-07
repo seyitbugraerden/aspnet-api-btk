@@ -2,6 +2,7 @@
     var technology = ViewBag.TechnologyArticle as System.Text.Json.Nodes.JsonObject;
     var food = ViewBag.FoodArticle as System.Text.Json.Nodes.JsonObject;
     var sport = ViewBag.SportArticle as System.Text.Json.Nodes.JsonObject;
+    var technologyDate = technology?["createdDate"]?.GetValue<DateTime>();
 }
 <div class="col-lg-6 back-hero-right">
     <div class="row back-pl-6">
@@ -14,10 +15,10 @@
                         <div class="back-btm-content">
                             <a href="#" class="back-cate back-poli">@(technology?["categoryName"]?.GetValue<string>())</a>
                             <h3><a href="#">@(technology?["title"]?.GetValue<string>())</a></h3>
-                            <ul>
+                            <ul class="technology-card-meta">
                                 <li class="back-author"><span><img src="~/userimages/man1.png"
                                         alt="Yazar profil fotoğrafı"
-                                        style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;" /></span><a
+                                        style="width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" /></span><a
                                     href="#">Yazar: Jon Deo</a></li>
                             <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -25,7 +26,7 @@
                                     class="feather feather-clock">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg></span>29 Mart 2022</li>
+                                </svg></span>@(technologyDate?.ToString("d MMMM yyyy", System.Globalization.CultureInfo.GetCultureInfo("tr-TR")))</li>
                         <li class="back-comments"><span><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

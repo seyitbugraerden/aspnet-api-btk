@@ -4328,3 +4328,31 @@ html.back-dark body .back-blog-page-single .blog-single-inner .blog-content .blo
 html.back-dark body .back-blog-page-single .blog-single-inner .blog-content .blog-form form textarea {
   background: #222;
 }
+
+/* Technology feature card metadata */
+.back-hero-area .back-hero-right ul .image-area .back-btm-content ul.technology-card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+.back-hero-area .back-hero-right ul .image-area .back-btm-content ul.technology-card-meta li {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.back-hero-area .back-hero-right ul .image-area .back-btm-content ul.technology-card-meta li span {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+.back-hero-area .back-hero-right ul .image-area .back-btm-content ul.technology-card-meta li svg {
+  width: 22px;
+  height: 22px;
+  top: 0;
+}
