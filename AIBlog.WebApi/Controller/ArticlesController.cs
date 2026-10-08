@@ -28,6 +28,25 @@ namespace AIBlog.WebApi.Controller
             var dto = _mapper.Map<List<ResultArticleWithCategoryDto>>(values);
             return Ok(dto);
         }
+        [HttpGet("GetLastArticlesOfDifferemtCategories")]
+        public IActionResult GetLastArticlesOfDifferemtCategories()
+        {
+            var values = _context.Articles
+                .AsNoTracking()
+                .Where(article => article.CategoryId != null &&
+                    article.ArticleId == _context.Articles
+                        .Where(x => x.CategoryId == article.CategoryId)
+                        .OrderByDescending(x => x.CreatedDate)
+                        .ThenByDescending(x => x.ArticleId)
+                        .Select(x => x.ArticleId)
+                        .FirstOrDefault())
+                .Include(article => article.Category)
+                .Include(article => article.AppUser)
+                .OrderBy(article => article.Category.CategoryName)
+                .ToList();
+
+            return Ok(_mapper.Map<List<ResultArticleWithHomeCategoryDto>>(values));
+        }
         [HttpPost]
         public IActionResult CreateArticle(CreateArticleDto createArticleDto)
         {
@@ -43,7 +62,6 @@ namespace AIBlog.WebApi.Controller
             var value = _context.Articles.Find(id);
             return Ok(_mapper.Map<GetArticleById>(value));
         }
-
         [HttpPut]
         public IActionResult UpdateArticle(UpdateArticleDto updateArticleDto)
         {
@@ -52,14 +70,12 @@ namespace AIBlog.WebApi.Controller
             _context.SaveChanges();
             return Ok("Güncelleme işlemi başarılı");
         }
-
         [HttpGet("GetArticlesFeatureSliderByTrue")]
         public IActionResult GetArticlesFeatureSliderByTrue()
         {
             var values = _context.Articles.Where(x => x.IsFeatureSlider == true).Include(x => x.Category).Include(y => y.AppUser).ToList();
             return Ok(value: _mapper.Map<List<ResultArticleWithHomeCategoryDto>>(values));
         }
-
         [HttpGet("GetLastTechnologyArticles")]
         public IActionResult GetLastTechnologyArticles()
         {
