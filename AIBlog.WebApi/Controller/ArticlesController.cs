@@ -56,26 +56,26 @@ namespace AIBlog.WebApi.Controller
         [HttpGet("GetArticlesFeatureSliderByTrue")]
         public IActionResult GetArticlesFeatureSliderByTrue()
         {
-            var values = _context.Articles.Where(x => x.IsFeatureSlider == true).Include(x => x.Category).ToList();
+            var values = _context.Articles.Where(x => x.IsFeatureSlider == true).Include(x => x.Category).Include(y => y.AppUser).ToList();
             return Ok(value: _mapper.Map<List<ResultArticleWithHomeCategoryDto>>(values));
         }
 
         [HttpGet("GetLastTechnologyArticles")]
         public IActionResult GetLastTechnologyArticles()
         {
-            var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Teknoloji").OrderByDescending(x => x.ArticleId).FirstOrDefault();
+            var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Teknoloji").Include(y => y.AppUser).OrderByDescending(x => x.ArticleId).FirstOrDefault();
             return Ok(_mapper.Map<ResultArticleSingleTech>(values));
         }
         [HttpGet("GetLastSportArticles")]
         public IActionResult GetLastSportArticles()
         {
-            var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Spor").OrderByDescending(x => x.ArticleId).FirstOrDefault();
+            var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Spor").Include(y => y.AppUser).OrderByDescending(x => x.ArticleId).FirstOrDefault();
             return Ok(_mapper.Map<ResultArticleSingleSport>(values));
         }
         [HttpGet("GetLastFoodArticles")]
         public IActionResult GetLastFoodArticles()
         {
-            var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Yemek").OrderByDescending(x => x.ArticleId).FirstOrDefault();
+            var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Yemek").Include(y => y.AppUser).OrderByDescending(x => x.ArticleId).FirstOrDefault();
             return Ok(_mapper.Map<ResultArticleSingleFood>(values));
         }
     }

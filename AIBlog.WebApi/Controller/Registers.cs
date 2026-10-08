@@ -1,15 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using AIBlog.WebApi.Dtos.RegisterDtos;
+using AIBlog.WebApi.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace AIBlog.WebApi.Controller
 {
+    [ApiController]
     [Route("[controller]")]
-    public class Registers : Controller
+    public class RegistersController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
 
@@ -17,6 +15,7 @@ namespace AIBlog.WebApi.Controller
         {
             _userManager = userManager;
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateUser(UserRegisterDto registerDto)
         {
@@ -30,7 +29,13 @@ namespace AIBlog.WebApi.Controller
                 Description = "Default Description",
                 ImageUrl = "default-image-url.jpg"
             };
-            await _userManager.CreateAsync(appUser, registerDto.Password);
+            var result = await _userManager.CreateAsync(appUser, registerDto.Password);
+
+            if (!result.Succeeded)
+            {
+                return BadRequest(result.Errors);
+            }
+
             return Ok("Kullanıcı başarıyla oluşturuldu.");
         }
     }

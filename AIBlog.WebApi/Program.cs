@@ -1,10 +1,12 @@
 using AIBlog.WebApi.Context;
+using AIBlog.WebApi.Entities;
 using AIBlog.WebApi.Mapping;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<BlogAIContext>();
-builder.Services.AddAutoMapper(typeof(GeneralMapping));
+builder.Services.AddAutoMapper(_ => { }, typeof(GeneralMapping));
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<BlogAIContext>();
 //Swagger Günceller
 builder.Services.AddControllers();

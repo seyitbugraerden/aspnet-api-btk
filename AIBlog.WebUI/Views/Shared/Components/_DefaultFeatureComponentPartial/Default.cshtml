@@ -2,7 +2,7 @@
     var technology = ViewBag.TechnologyArticle as System.Text.Json.Nodes.JsonObject;
     var food = ViewBag.FoodArticle as System.Text.Json.Nodes.JsonObject;
     var sport = ViewBag.SportArticle as System.Text.Json.Nodes.JsonObject;
-    var technologyDate = technology?["createdDate"]?.GetValue<DateTime>();
+    var technologyDate = technology ?["createdDate"]?.GetValue<DateTime>();
 }
 <div class="col-lg-6 back-hero-right">
     <div class="row back-pl-6">
@@ -16,10 +16,10 @@
                             <a href="#" class="back-cate back-poli">@(technology?["categoryName"]?.GetValue<string>())</a>
                             <h3><a href="#">@(technology?["title"]?.GetValue<string>())</a></h3>
                             <ul class="technology-card-meta">
-                                <li class="back-author"><span><img src="~/userimages/man1.png"
+                                <li class="back-author"><span><img src="@(technology?["imageUrl"]?.GetValue<string>())"
                                         alt="Yazar profil fotoğrafı"
                                         style="width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" /></span><a
-                                    href="#">Yazar: Jon Deo</a></li>
+                                    href="#">Yazar: @(technology?["name"]?.GetValue<string>()) @(technology?["surname"]?.GetValue<string>())</a></li>
                             <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -51,10 +51,10 @@
                     <a href="#" class="back-cate back-tech">@(food?["categoryName"]?.GetValue<string>())</a>
                     <h3><a href="#">@(food?["title"]?.GetValue<string>())</a></h3>
                     <ul>
-                        <li class="back-author"><span><img src="~/userimages/man1.png"
+                        <li class="back-author"><span><img src="@(food?["imageUrl"]?.GetValue<string>())"
                                 alt="Yazar profil fotoğrafı"
                                 style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;" /></span><a
-                            href="#">Yazar: Jon Deo</a></li>
+                            href="#">Yazar: @(food?["name"]?.GetValue<string>()) @(food?["surname"]?.GetValue<string>())</a></li>
                 </ul>
             </div>
         </div>
@@ -72,10 +72,10 @@
                     <a href="#" class="back-cate back-tra">@(sport?["categoryName"]?.GetValue<string>())</a>
                     <h3><a href="#">@(sport?["title"]?.GetValue<string>())</a></h3>
                     <ul>
-                        <li class="back-author"><span><img src="~/userimages/man1.png"
+                        <li class="back-author"><span><img src="@(sport?["imageUrl"]?.GetValue<string>())"
                                 alt="Yazar profil fotoğrafı"
                                 style="width: 20px; height: 20px; object-fit: cover; border-radius: 50%;" /></span><a
-                            href="#">Yazar: Jon Deo</a></li>
+                            href="#">Yazar: @(sport?["name"]?.GetValue<string>()) @(sport?["surname"]?.GetValue<string>())</a></li>
                 </ul>
             </div>
         </div>
