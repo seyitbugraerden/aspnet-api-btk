@@ -4,7 +4,8 @@ using AIBlog.WebApi.Mapping;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<BlogAIContext>();
-builder.Services.AddAutoMapper(cfg => { }, typeof(GeneralMapping));
+builder.Services.AddAutoMapper(typeof(GeneralMapping));
+builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<BlogAIContext>();
 //Swagger Günceller
 builder.Services.AddControllers();
 
