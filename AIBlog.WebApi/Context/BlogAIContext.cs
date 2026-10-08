@@ -1,9 +1,10 @@
 using AIBlog.WebApi.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace AIBlog.WebApi.Context
 {
-    public class BlogAIContext : DbContext
+    public class BlogAIContext : IdentityDbContext<AppUser>
     {
         private readonly IConfiguration _configuration;
 
