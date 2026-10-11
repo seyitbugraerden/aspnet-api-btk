@@ -103,7 +103,8 @@ namespace AIBlog.WebApi.Controller
         [HttpGet("GetHomeLastArticles")]
         public IActionResult GetHomeLastArticles()
         {
-            var values = _context.Articles.Where(x => x.IsLastArticle == true).Include(x => x.Category).Include(y => y.AppUser).ToList();
+            var values = _context.Articles.Where(x => x.IsLastArticle == true).Include(x => x.Category).Include(y => y.AppUser).OrderByDescending(x => x.CreatedDate)
+    .ThenByDescending(x => x.ArticleId).ToList();
             return Ok(_mapper.Map<List<ResultHomeLastArticle>>(values));
         }
 
