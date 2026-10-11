@@ -74,6 +74,13 @@ namespace AIBlog.WebApi.Mapping
                 .ForMember(dest => dest.ImageUrl,
                     opt => opt.MapFrom(src =>
                         src.AppUser != null ? src.AppUser.ImageUrl : null));
+            CreateMap<Article, ResultArticleLastArticles>()
+                .ForMember(dest => dest.CategoryName,
+        opt => opt.MapFrom(src =>
+            src.Category != null ? src.Category.CategoryName : null))
+                .ForMember(dest => dest.ImageUrl,
+        opt => opt.MapFrom(src =>
+            src.AppUser != null ? src.AppUser.ImageUrl : null));
         }
     }
 }

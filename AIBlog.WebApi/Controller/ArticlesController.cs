@@ -28,25 +28,6 @@ namespace AIBlog.WebApi.Controller
             var dto = _mapper.Map<List<ResultArticleWithCategoryDto>>(values);
             return Ok(dto);
         }
-        [HttpGet("GetLastArticlesOfDifferemtCategories")]
-        public IActionResult GetLastArticlesOfDifferemtCategories()
-        {
-            var values = _context.Articles
-                .AsNoTracking()
-                .Where(article => article.CategoryId != null &&
-                    article.ArticleId == _context.Articles
-                        .Where(x => x.CategoryId == article.CategoryId)
-                        .OrderByDescending(x => x.CreatedDate)
-                        .ThenByDescending(x => x.ArticleId)
-                        .Select(x => x.ArticleId)
-                        .FirstOrDefault())
-                .Include(article => article.Category)
-                .Include(article => article.AppUser)
-                .OrderBy(article => article.Category.CategoryName)
-                .ToList();
-
-            return Ok(_mapper.Map<List<ResultArticleWithHomeCategoryDto>>(values));
-        }
         [HttpPost]
         public IActionResult CreateArticle(CreateArticleDto createArticleDto)
         {
@@ -94,5 +75,25 @@ namespace AIBlog.WebApi.Controller
             var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Yemek").Include(y => y.AppUser).OrderByDescending(x => x.ArticleId).FirstOrDefault();
             return Ok(_mapper.Map<ResultArticleSingleFood>(values));
         }
+        [HttpGet("GetLastArticlesOfDifferemtCategories")]
+        public IActionResult GetLastArticlesOfDifferemtCategories()
+        {
+            var values = _context.Articles
+                .AsNoTracking()
+                .Where(article => article.CategoryId != null &&
+                    article.ArticleId == _context.Articles
+                        .Where(x => x.CategoryId == article.CategoryId)
+                        .OrderByDescending(x => x.CreatedDate)
+                        .ThenByDescending(x => x.ArticleId)
+                        .Select(x => x.ArticleId)
+                        .FirstOrDefault())
+                .Include(article => article.Category)
+                .Include(article => article.AppUser)
+                .OrderBy(article => article.Category.CategoryName)
+                .ToList();
+
+            return Ok(_mapper.Map<List<ResultArticleLastArticles>>(values));
+        }
+
     }
 }
