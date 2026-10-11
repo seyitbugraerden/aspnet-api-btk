@@ -15,6 +15,10 @@ namespace AIBlog.WebUI.Dtos.ArticleDtos
         public DateTime CreatedDate { get; set; }
         public string CategoryName { get; set; }
         public bool IsFeatureSlider { get; set; }
+        public bool IsTrendingStories { get; set; }
         public string FeatureSliderImageUrl { get; set; }
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
+        public string? imageUrl { get; set; }
     }
 }

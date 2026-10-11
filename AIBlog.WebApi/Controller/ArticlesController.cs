@@ -94,6 +94,12 @@ namespace AIBlog.WebApi.Controller
 
             return Ok(_mapper.Map<List<ResultArticleLastArticles>>(values));
         }
+        [HttpGet("GetTrendingArticles")]
+        public IActionResult GetTrendingArticles()
+        {
+            var values = _context.Articles.Where(x => x.IsTrendingStories == true).Include(x => x.Category).Include(y => y.AppUser).ToList();
+            return Ok(_mapper.Map<List<ResultArticleTrendingDto>>(values));
+        }
 
     }
 }

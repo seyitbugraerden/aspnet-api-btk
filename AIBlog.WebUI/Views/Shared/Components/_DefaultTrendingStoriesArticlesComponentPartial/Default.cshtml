@@ -1,74 +1,25 @@
-<div class="back-trending-stories">
-                <div class="container">
-                    <div class="back-title">
-                        <h2>Öne Çıkan Yazılar</h2>
-                    </div>
-                    <ul class="back-trending-slider owl-carousel">
-                        <li>
-                            <div class="image-areas">
-                                <a href="#"><img src="~/articleimages/01.jpg" alt="Somon, sebzeler ve taze meyveler" style="width: 100%; aspect-ratio: 600 / 600; object-fit: cover;"></a>
-                                <a href="#" class="back-cate back-beauty">Beslenme</a>                               
-                            </div>
-                            <div class="back-btm-content">                                
-                                <h3><a href="#">Dengeli beslenmeyle sofranıza çeşitlilik katın</a></h3>
-                                <ul>
-                                    <li class="back-author">Yazar: <a href="#">Jon Deo</a></li>
-                                    <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>29 Nisan 2022</li>
-                                </ul>
-                            </div> 
-                        </li>
-                        <li>
-                            <div class="image-areas">
-                                <a href="#"><img src="~/articleimages/08.jpg" alt="Şehirde haritayla rota arayan gezginler" style="width: 100%; aspect-ratio: 600 / 600; object-fit: cover;"></a>
-                                <a href="#" class="back-cate back-tra">Seyahat</a>                               
-                            </div>
-                            <div class="back-btm-content">                                
-                                <h3><a href="#">Şehir gezilerinde yeni rotalar keşfedin</a></h3>
-                                <ul>
-                                    <li class="back-author">Yazar: <a href="#"> Jon Deo</a></li>
-                                    <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>25 Mart 2022</li>
-                                </ul>
-                            </div> 
-                        </li>
-                        <li>
-                            <div class="image-areas">
-                                <a href="#"><img src="~/articleimages/07.jpg" alt="Renkli bir dijital sanat çalışma alanı" style="width: 100%; aspect-ratio: 600 / 600; object-fit: cover;"></a>
-                                <a href="#" class="back-cate back-design">Tasarım</a>                               
-                            </div>
-                            <div class="back-btm-content">                                
-                                <h3><a href="#">Dijital sanatla yaratıcılığınızı ortaya çıkarın</a></h3>
-                                <ul>
-                                    <li class="back-author">Yazar: <a href="#"> Jon Deo</a></li>
-                                    <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>29 Mayıs 2022</li>
-                                </ul>
-                            </div> 
-                        </li>
-                        <li>
-                            <div class="image-areas">
-                                <a href="#"><img src="~/articleimages/05.jpg" alt="Dijital ortamda banka binası" style="width: 100%; aspect-ratio: 600 / 600; object-fit: cover;"></a>
-                                <a href="#" class="back-cate back-poli">Ekonomi</a>                               
-                            </div>
-                            <div class="back-btm-content">                                
-                                <h3><a href="#">Bankacılıkta dijital dönüşümü keşfedin</a></h3>
-                                <ul>
-                                    <li class="back-author">Yazar: <a href="#"> Jon Deo</a></li>
-                                    <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>20 Haziran 2022</li>
-                                </ul>
-                            </div> 
-                        </li>
-                        <li>
-                            <div class="image-areas">
-                                <a href="#"><img src="~/articleimages/04.jpg" alt="Yapay zekâyı temsil eden işlemci" style="width: 100%; aspect-ratio: 600 / 600; object-fit: cover;"></a> 
-                                <a href="#" class="back-cate back-tech">Teknoloji</a>                               
-                            </div>
-                            <div class="back-btm-content">                                
-                                <h3><a href="#">Yapay zekâ ile geleceğin teknolojileri</a></h3>
-                                <ul>
-                                    <li class="back-author">Yazar: <a href="#"> Jon Deo</a></li>
-                                    <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>20 Haziran 2022</li>
-                                </ul>
-                            </div> 
-                        </li>
-                    </ul>
-                </div>
+@model List<ResultArticleDto>
+    <div class="back-trending-stories">
+        <div class="container">
+            <div class="back-title">
+                <h2>Öne Çıkan Yazılar</h2>
             </div>
+            <ul class="back-trending-slider owl-carousel">
+                @foreach(ResultArticleDto item in Model){
+                    <li>
+                        <div class="image-areas">
+                            <a href="#"><img src="@Url.Content(item.CoverImageUrl)" alt="@item.Title" style="width: 100%; aspect-ratio: 600 / 600; object-fit: cover;"></a>
+                            <a href="#" class="back-cate back-beauty">@item.CategoryName</a>
+                        </div>
+                        <div class="back-btm-content">
+                            <h3><a href="#">@item.Title</a></h3>
+                            <ul style="display: flex;flex-direction:column;">
+                                <li class="back-author">Yazar: <a href="#">@item.Name @item.Surname</a></li>
+                                <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>@item.CreatedDate.ToString("d MMMM yyyy", System.Globalization.CultureInfo.GetCultureInfo("tr-TR"))</li>
+                            </ul>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
