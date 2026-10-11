@@ -19,6 +19,7 @@ namespace AIBlog.WebApi.Entities
         public string FeatureSliderImageUrl { get; set; }
         public string? AppUserId { get; set; }
         public bool? IsTrendingStories { get; set; }
+        public bool? IsLastArticle { get; set; }
         public AppUser AppUser { get; set; }
     }
 }

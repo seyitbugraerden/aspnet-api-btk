@@ -160,6 +160,9 @@ namespace AIBlog.WebApi.Migrations
                     b.Property<bool>("IsFeatureSlider")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("IsLastArticle")
+                        .HasColumnType("bit");
+
                     b.Property<bool?>("IsTrendingStories")
                         .HasColumnType("bit");
 

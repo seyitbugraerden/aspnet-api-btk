@@ -100,6 +100,12 @@ namespace AIBlog.WebApi.Controller
             var values = _context.Articles.Where(x => x.IsTrendingStories == true).Include(x => x.Category).Include(y => y.AppUser).ToList();
             return Ok(_mapper.Map<List<ResultArticleTrendingDto>>(values));
         }
+        [HttpGet("GetHomeLastArticles")]
+        public IActionResult GetHomeLastArticles()
+        {
+            var values = _context.Articles.Where(x => x.IsLastArticle == true).Include(x => x.Category).Include(y => y.AppUser).ToList();
+            return Ok(_mapper.Map<List<ResultHomeLastArticle>>(values));
+        }
 
     }
 }
