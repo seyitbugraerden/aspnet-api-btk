@@ -20,6 +20,8 @@ namespace AIBlog.WebApi.Entities
         public string? AppUserId { get; set; }
         public bool? IsTrendingStories { get; set; }
         public bool? IsLastArticle { get; set; }
+        public bool? IsLastVideoArticle { get; set; }
+        public string? MainVideoUrl { get; set; }
         public AppUser AppUser { get; set; }
     }
 }

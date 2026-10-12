@@ -107,6 +107,12 @@ namespace AIBlog.WebApi.Controller
     .ThenByDescending(x => x.ArticleId).ToList();
             return Ok(_mapper.Map<List<ResultHomeLastArticle>>(values));
         }
-
+        [HttpGet("GetHomeLastVideoArticles")]
+        public IActionResult GetHomeLastVideoArticles()
+        {
+            var values = _context.Articles.Where(x => x.IsLastVideoArticle == true).Include(x => x.Category).Include(y => y.AppUser).OrderByDescending(x => x.CreatedDate)
+    .ThenByDescending(x => x.ArticleId).ToList();
+            return Ok(_mapper.Map<List<ResultHomeLastVideoArticle>>(values));
+        }
     }
 }

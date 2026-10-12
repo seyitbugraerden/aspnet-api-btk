@@ -163,11 +163,17 @@ namespace AIBlog.WebApi.Migrations
                     b.Property<bool?>("IsLastArticle")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("IsLastVideoArticle")
+                        .HasColumnType("bit");
+
                     b.Property<bool?>("IsTrendingStories")
                         .HasColumnType("bit");
 
                     b.Property<string>("MainImageUrl")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MainVideoUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
