@@ -14,3 +14,5 @@
 | Seyahat Fotoğraflarında Bir Hikâye Kurmak | [9 photo composition tips (feat. Steve McCurry)](https://www.youtube.com/watch?v=7ZVyNjKSr0M) | 3:09 |
 | Bir Sergiyi Gezerken Kendi Notlarınızı Oluşturmak | [Why look at art?](https://www.youtube.com/watch?v=0OloYD_kSbU) | 1:56 |
 | Okuma Günlüğüyle Kitapları Hatırlamak | [My A6 Reading Journal Setup 📚 #shorts](https://www.youtube.com/watch?v=VUgBhyShx3w) | 0:20 |
+
+Popup uyumluluğu için MainVideoUrl değerleri `https://www.youtube.com/watch?v=VIDEO_ID` biçiminde saklanır.
