@@ -10,21 +10,20 @@ $(function() {
     })
 
 
-	$(function() {
-		for (var e = window.location, o = $(".sidebar-wrapper .tab-content a").filter(function() {
-				return this.href == e
-			}).addClass("active");
-
-			o.is("a");)
-			
-			o = o.parent("").parent("").addClass("active show");
-			console.log(o[0].id.toString())
-			var tab = "#" + o[0].id.toString()
-			$("[data-bs-target='" + tab + "']").addClass('active')
-			
-		}); 
-
-
+    // Select the menu tab containing the current page.
+    var currentPath = window.location.pathname.replace(/\/$/, "").toLowerCase();
+    if (currentPath === "/admin/index") currentPath = "/admin";
+    var activeLink = $(".sidebar-wrapper .tab-content a").filter(function () {
+        return this.pathname.replace(/\/$/, "").toLowerCase() === currentPath;
+    }).first();
+    var activePane = activeLink.closest(".tab-pane");
+    if (activePane.length) {
+        $(".sidebar-wrapper .tab-pane").removeClass("active show");
+        $(".iconmenu .nav-link").removeClass("active");
+        activeLink.addClass("active");
+        activePane.addClass("active show");
+        $(".iconmenu [data-bs-target='#" + activePane.attr("id") + "']").addClass("active");
+    }
 
     $(".nav-toggle-icon").on("click", function() {
 		
