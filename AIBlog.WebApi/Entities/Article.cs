@@ -23,5 +23,6 @@ namespace AIBlog.WebApi.Entities
         public bool? IsLastVideoArticle { get; set; }
         public string? MainVideoUrl { get; set; }
         public AppUser AppUser { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }

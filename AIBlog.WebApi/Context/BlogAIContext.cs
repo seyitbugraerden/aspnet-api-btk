@@ -30,6 +30,7 @@ namespace AIBlog.WebApi.Context
         public DbSet<Contact> Contacts => Set<Contact>();
         public DbSet<Employee> Employees => Set<Employee>();
         public DbSet<TradingVideo> TradingVideos => Set<TradingVideo>();
+        public DbSet<Comment> Comments => Set<Comment>();
 
     }
 }

@@ -206,6 +206,44 @@ namespace AIBlog.WebApi.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("AIBlog.WebApi.Entities.Comment", b =>
+                {
+                    b.Property<int>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"));
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ArticleId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CommentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CommentDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CommentStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsConfirmed")
+                        .HasColumnType("bit");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ArticleId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("AIBlog.WebApi.Entities.Contact", b =>
                 {
                     b.Property<int>("ContactId")
@@ -448,6 +486,25 @@ namespace AIBlog.WebApi.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("AIBlog.WebApi.Entities.Comment", b =>
+                {
+                    b.HasOne("AIBlog.WebApi.Entities.AppUser", "AppUser")
+                        .WithMany("Comments")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AIBlog.WebApi.Entities.Article", "Article")
+                        .WithMany("Comments")
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Article");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -502,6 +559,13 @@ namespace AIBlog.WebApi.Migrations
             modelBuilder.Entity("AIBlog.WebApi.Entities.AppUser", b =>
                 {
                     b.Navigation("Articles");
+
+                    b.Navigation("Comments");
+                });
+
+            modelBuilder.Entity("AIBlog.WebApi.Entities.Article", b =>
+                {
+                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("AIBlog.WebApi.Entities.Category", b =>
