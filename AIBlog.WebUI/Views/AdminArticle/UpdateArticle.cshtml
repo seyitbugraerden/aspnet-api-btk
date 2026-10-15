@@ -1,0 +1,49 @@
+@model AIBlog.WebUI.Dtos.ArticleDtos.UpdateArticleDto
+@{
+    ViewData["Title"] = "Makale Güncelle";
+    Layout = "~/Views/UILayout/AdminLayout/Index.cshtml";
+}
+
+<h1 class="h4 mb-3">Makale Güncelle</h1>
+<div class="card">
+    <div class="card-body">
+        <form asp-action="UpdateArticle" method="post" asp-antiforgery="false">
+            <input asp-for="ArticleId" type="hidden" />
+            <input asp-for="CreatedDate" type="hidden" />
+            <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label">Başlık</label>
+                <input asp-for="Title" type="text" class="form-control" required />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CategoryId" class="form-label">Kategori</label>
+                <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select"><option value="">Kategori seçin</option></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CoverImageUrl" class="form-label">Kapak Görseli URL</label>
+                <input asp-for="CoverImageUrl" type="url" class="form-control" required />
+                <span asp-validation-for="CoverImageUrl" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MainImageUrl" class="form-label">Ana Görsel URL</label>
+                <input asp-for="MainImageUrl" type="url" class="form-control" required />
+                <span asp-validation-for="MainImageUrl" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Content" class="form-label">İçerik</label>
+                <textarea asp-for="Content" class="form-control" rows="12" required></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <a asp-action="ArticleList" class="btn btn-outline-secondary">Vazgeç</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

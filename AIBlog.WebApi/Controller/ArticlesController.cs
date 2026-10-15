@@ -37,11 +37,21 @@ namespace AIBlog.WebApi.Controller
             _context.SaveChanges();
             return Ok("Ekleme işlemi başarılı");
         }
-        [HttpDelete("{id}")]
+        [HttpGet("{id:int}")]
+        public IActionResult GetArticle(int id)
+        {
+            var value = _context.Articles.Find(id);
+            if (value == null) return NotFound();
+            return Ok(_mapper.Map<GetArticleById>(value));
+        }
+        [HttpDelete("{id:int}")]
         public IActionResult DeleteArticle(int id)
         {
             var value = _context.Articles.Find(id);
-            return Ok(_mapper.Map<GetArticleById>(value));
+            if (value == null) return NotFound();
+            _context.Articles.Remove(value);
+            _context.SaveChanges();
+            return Ok("Silme işlemi başarılı");
         }
         [HttpPut]
         public IActionResult UpdateArticle(UpdateArticleDto updateArticleDto)

@@ -1,0 +1,57 @@
+@model List<AIBlog.WebUI.Dtos.ArticleDtos.ResultArticleDto>
+@{
+    ViewData["Title"] = "Makaleler";
+    Layout = "~/Views/UILayout/AdminLayout/Index.cshtml";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Makaleler</h1>
+    <a asp-action="CreateArticle" class="btn btn-primary">Yeni Makale</a>
+</div>
+@if (TempData["SuccessMessage"] is string successMessage)
+{
+    <div class="alert alert-success" role="status">@successMessage</div>
+}
+@if (TempData["ErrorMessage"] is string errorMessage)
+{
+    <div class="alert alert-danger" role="alert">@errorMessage</div>
+}
+@if (ViewBag.ErrorMessage is string loadError)
+{
+    <div class="alert alert-danger" role="alert">@loadError <a asp-action="ArticleList" class="alert-link">Tekrar dene</a></div>
+}
+else
+{
+    <div class="card">
+        <div class="card-body table-responsive">
+            <table class="table align-middle mb-0">
+                <thead class="table-secondary">
+                    <tr><th scope="col">ID</th><th scope="col">Başlık</th><th scope="col">Kategori</th><th scope="col">Tarih</th><th scope="col" class="text-end">İşlemler</th></tr>
+                </thead>
+                <tbody>
+                    @if (Model.Count == 0)
+                    {
+                        <tr><td colspan="5" class="text-center py-4 text-muted">Henüz makale eklenmemiş.</td></tr>
+                    }
+                    @foreach (var article in Model)
+                    {
+                        <tr>
+                            <td>@article.ArticleId</td>
+                            <td>@article.Title</td>
+                            <td>@article.CategoryName</td>
+                            <td>@article.CreatedDate.ToString("dd.MM.yyyy")</td>
+                            <td>
+                                <div class="d-flex justify-content-end gap-2">
+                                    <a asp-action="UpdateArticle" asp-route-id="@article.ArticleId" class="btn btn-sm btn-outline-primary">Düzenle</a>
+                                    <form asp-action="DeleteArticle" asp-route-id="@article.ArticleId" method="post" asp-antiforgery="false" onsubmit="return confirm('Bu makaleyi silmek istediğinize emin misiniz?');">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">Sil</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
