@@ -1,0 +1,28 @@
+@model AIBlog.WebUI.Dtos.CategoryDtos.UpdateCategoryDto
+@{
+    ViewData["Title"] = "Kategori Güncelle";
+    Layout = "~/Views/UILayout/AdminLayout/Index.cshtml";
+}
+
+<h1 class="h4 mb-3">Kategori Güncelle</h1>
+<div class="card">
+    <div class="card-body">
+        <form asp-action="UpdateCategory" method="post">
+            <input asp-for="CategoryId" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="mb-3">
+                <label asp-for="CategoryName" class="form-label"></label>
+                <input asp-for="CategoryName" class="form-control" placeholder="Kategori adını girin" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <a asp-action="CategoryList" class="btn btn-outline-secondary">Vazgeç</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

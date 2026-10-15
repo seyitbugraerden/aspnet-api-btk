@@ -1,0 +1,58 @@
+@model List<AIBlog.WebUI.Dtos.CategoryDtos.ResulCategoryDto>
+@{
+    ViewData["Title"] = "Kategoriler";
+    Layout = "~/Views/UILayout/AdminLayout/Index.cshtml";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Kategoriler</h1>
+    <a asp-action="CreateCategory" class="btn btn-primary"><i class="bi bi-plus-lg" aria-hidden="true"></i> Yeni Kategori</a>
+</div>
+
+@if (TempData["SuccessMessage"] is string successMessage)
+{
+    <div class="alert alert-success" role="status">@successMessage</div>
+}
+@if (TempData["ErrorMessage"] is string errorMessage)
+{
+    <div class="alert alert-danger" role="alert">@errorMessage</div>
+}
+@if (ViewBag.ErrorMessage is string loadError)
+{
+    <div class="alert alert-danger" role="alert">@loadError <a asp-action="CategoryList" class="alert-link">Tekrar dene</a></div>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle mb-0">
+                    <thead class="table-secondary">
+                        <tr><th scope="col">ID</th><th scope="col">Kategori Adı</th><th scope="col" class="text-end">İşlemler</th></tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Count == 0)
+                        {
+                            <tr><td colspan="3" class="text-center py-4 text-muted">Henüz kategori eklenmemiş.</td></tr>
+                        }
+                        @foreach (var category in Model)
+                        {
+                            <tr>
+                                <td>@category.CategoryId</td>
+                                <td>@category.CategoryName</td>
+                                <td>
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <a asp-action="UpdateCategory" asp-route-id="@category.CategoryId" class="btn btn-sm btn-outline-primary" aria-label="@category.CategoryName kategorisini düzenle">Düzenle</a>
+                                        <form asp-action="DeleteCategory" asp-route-id="@category.CategoryId" method="post" onsubmit="return confirm('Bu kategoriyi silmek istediğinize emin misiniz?');">
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" aria-label="@category.CategoryName kategorisini sil">Sil</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
