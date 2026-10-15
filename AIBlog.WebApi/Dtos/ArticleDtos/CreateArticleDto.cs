@@ -7,6 +7,7 @@ namespace AIBlog.WebApi.Dtos.ArticleDtos
 {
     public class CreateArticleDto
     {
+        public string? AppUserId { get; set; }
         public string Title { get; set; }
         public string CoverImageUrl { get; set; }
         public string MainImageUrl { get; set; }

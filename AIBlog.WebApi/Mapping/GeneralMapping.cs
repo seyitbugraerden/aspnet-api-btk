@@ -9,6 +9,8 @@ namespace AIBlog.WebApi.Mapping
         public GeneralMapping()
         {
             CreateMap<Article, ResultArticleWithCategoryDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.AppUser != null ? src.AppUser.Name : null))
+                .ForMember(dest => dest.Surname, opt => opt.MapFrom(src => src.AppUser != null ? src.AppUser.Surname : null))
                 .ForMember(
                     dest => dest.CategoryName,
                     opt => opt.MapFrom(src => src.Category != null

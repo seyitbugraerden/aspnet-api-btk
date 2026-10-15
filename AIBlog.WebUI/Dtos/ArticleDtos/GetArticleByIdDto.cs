@@ -2,6 +2,7 @@ namespace AIBlog.WebUI.Dtos.ArticleDtos;
 
 public class GetArticleByIdDto
 {
+    public string? AppUserId { get; set; }
     public int ArticleId { get; set; }
     public string Title { get; set; } = string.Empty;
     public string CoverImageUrl { get; set; } = string.Empty;

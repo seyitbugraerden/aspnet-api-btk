@@ -2,6 +2,7 @@ using AIBlog.WebUI.Dtos.ArticleDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AIBlog.WebUI.Dtos.CategoryDtos;
+using AIBlog.WebUI.Dtos.UserDtos;
 using System.Net;
 
 namespace AIBlog.WebUI.Controllers;
@@ -34,7 +35,7 @@ public class AdminArticleController : Controller
     [HttpGet]
     public async Task<IActionResult> CreateArticle()
     {
-        await LoadCategoriesAsync();
+        await LoadFormOptionsAsync();
         return View(new CreateArticleDto());
     }
 
@@ -43,7 +44,7 @@ public class AdminArticleController : Controller
     {
         if (!ModelState.IsValid)
         {
-            await LoadCategoriesAsync();
+            await LoadFormOptionsAsync();
             return View(model);
         }
 
@@ -54,7 +55,7 @@ public class AdminArticleController : Controller
             TempData["SuccessMessage"] = "Makale oluşturuldu.";
             return RedirectToAction(nameof(ArticleList));
         }
-        await LoadCategoriesAsync();
+        await LoadFormOptionsAsync();
         ModelState.AddModelError(string.Empty, "Makale oluşturulamadı.");
         return View(model);
     }
@@ -70,7 +71,7 @@ public class AdminArticleController : Controller
             var article = await response.Content.ReadFromJsonAsync<GetArticleByIdDto>();
             if (article is not null)
             {
-                await LoadCategoriesAsync();
+                await LoadFormOptionsAsync();
                 return View(new UpdateArticleDto
                 {
                     ArticleId = article.ArticleId,
@@ -79,7 +80,8 @@ public class AdminArticleController : Controller
                     MainImageUrl = article.MainImageUrl,
                     Content = article.Content,
                     CreatedDate = article.CreatedDate,
-                    CategoryId = article.CategoryId
+                    CategoryId = article.CategoryId,
+                    AppUserId = article.AppUserId
                 });
             }
         }
@@ -92,7 +94,7 @@ public class AdminArticleController : Controller
     {
         if (!ModelState.IsValid)
         {
-            await LoadCategoriesAsync();
+            await LoadFormOptionsAsync();
             return View(model);
         }
 
@@ -104,7 +106,7 @@ public class AdminArticleController : Controller
             TempData["SuccessMessage"] = "Makale güncellendi.";
             return RedirectToAction(nameof(ArticleList));
         }
-        await LoadCategoriesAsync();
+        await LoadFormOptionsAsync();
         ModelState.AddModelError(string.Empty, "Makale güncellenemedi.");
         return View(model);
     }
@@ -125,7 +127,7 @@ public class AdminArticleController : Controller
         return RedirectToAction(nameof(ArticleList));
     }
 
-    private async Task LoadCategoriesAsync()
+    private async Task LoadFormOptionsAsync()
     {
         var client = _httpClientFactory.CreateClient();
         using var response = await client.GetAsync("http://localhost:5159/api/Categories");
@@ -133,6 +135,19 @@ public class AdminArticleController : Controller
             ? await response.Content.ReadFromJsonAsync<List<ResulCategoryDto>>() ?? new()
             : new List<ResulCategoryDto>();
         ViewBag.Categories = new SelectList(categories, "CategoryId", "CategoryName");
+        using var usersResponse = await client.GetAsync("http://localhost:5159/api/Users");
+        var users = usersResponse.IsSuccessStatusCode
+            ? await usersResponse.Content.ReadFromJsonAsync<List<ResultUserDto>>() ?? new()
+            : new List<ResultUserDto>();
+        ViewBag.Users = new SelectList(users.Select(user => new
+        {
+            user.Id,
+            DisplayName = $"{user.Name} {user.Surname}".Trim() is { Length: > 0 } name ? name : user.Id
+        }), "Id", "DisplayName");
+        if (!usersResponse.IsSuccessStatusCode)
+        {
+            ModelState.AddModelError(string.Empty, "Yazarlar yüklenemedi. Lütfen tekrar deneyin.");
+        }
         if (!response.IsSuccessStatusCode)
         {
             ModelState.AddModelError(string.Empty, "Kategoriler yüklenemedi. Lütfen tekrar deneyin.");

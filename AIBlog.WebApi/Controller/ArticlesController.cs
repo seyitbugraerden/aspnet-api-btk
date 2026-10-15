@@ -24,13 +24,15 @@ namespace AIBlog.WebApi.Controller
         [HttpGet]
         public IActionResult ArticleList()
         {
-            var values = _context.Articles.Include(x => x.Category).ToList();
+            var values = _context.Articles.Include(x => x.Category).Include(x => x.AppUser).ToList();
             var dto = _mapper.Map<List<ResultArticleWithCategoryDto>>(values);
             return Ok(dto);
         }
         [HttpPost]
         public IActionResult CreateArticle(CreateArticleDto createArticleDto)
         {
+            if (createArticleDto.AppUserId != null && !_context.Users.Any(x => x.Id == createArticleDto.AppUserId))
+                return BadRequest("Seçilen yazar bulunamadı.");
             createArticleDto.CreatedDate = DateTime.Now;
             var values = _mapper.Map<Article>(createArticleDto);
             _context.Articles.Add(values);
@@ -56,8 +58,17 @@ namespace AIBlog.WebApi.Controller
         [HttpPut]
         public IActionResult UpdateArticle(UpdateArticleDto updateArticleDto)
         {
-            var value = _mapper.Map<Article>(updateArticleDto);
-            _context.Articles.Update(value);
+            var value = _context.Articles.Find(updateArticleDto.ArticleId);
+            if (value == null) return NotFound();
+            if (updateArticleDto.AppUserId != null && !_context.Users.Any(x => x.Id == updateArticleDto.AppUserId))
+                return BadRequest("Seçilen yazar bulunamadı.");
+
+            value.Title = updateArticleDto.Title;
+            value.CoverImageUrl = updateArticleDto.CoverImageUrl;
+            value.MainImageUrl = updateArticleDto.MainImageUrl;
+            value.Content = updateArticleDto.Content;
+            value.CategoryId = updateArticleDto.CategoryId;
+            value.AppUserId = updateArticleDto.AppUserId;
             _context.SaveChanges();
             return Ok("Güncelleme işlemi başarılı");
         }
