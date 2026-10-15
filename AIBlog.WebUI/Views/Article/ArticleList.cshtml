@@ -29,12 +29,12 @@
                 {
                     <div class="col-lg-4">
                         <div class="image-areas">
-                            <a href="#"><img src="@item.CoverImageUrl" alt="image"
+                            <a asp-action="ArticleDetail" asp-route-id="@item.ArticleId"><img src="@item.CoverImageUrl" alt="image"
                                                  style="width: 100%; height: 300px; object-fit: cover;"></a>
                             </div>
                             <div class="back-btm-content">
                                 <a href="#" class="back-cates">@item.CategoryName</a>
-                                <h3><a href="#">@item.Title</a></h3>
+                                <h3><a asp-action="ArticleDetail" asp-route-id="@item.ArticleId">@item.Title</a></h3>
                                 <ul>
                                     <li class="back-author">Yazar: <a href="#">Adı Soyadı</a></li>
                                     <li class="back-date"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -44,7 +44,7 @@
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg></span>@item.CreatedDate.ToString("MMMM dd, yyyy")</li>
                                 </ul>
-                                <p>@item.Content.Substring(0, 70)...</p>
+                                <p>@(item.Content.Length > 70 ? item.Content[..70] + "..." : item.Content)</p>
                             </div>
                         </div>
                     }

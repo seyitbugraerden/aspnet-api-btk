@@ -1,41 +1,30 @@
-<div class="back-blog-form">
-    <div id="blog-form" class="blog-form">
-        <div class="back-title back-small-title">
-            <h2>Yorum Yap</h2>
-        </div>
-        <form>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="back-textarea">
-                        <textarea placeholder="Mesajınız"></textarea>
-                    </div>
+@model AIBlog.WebUI.Dtos.CommentDtos.CreateCommentDto
+@if (Model.ArticleId > 0)
+{
+    <div class="back-blog-form"><div id="blog-form" class="blog-form">
+        <div class="back-title back-small-title"><h2>Yorum Yap</h2></div>
+        @if (TempData["CommentSuccess"] is string success)
+        {
+            <p role="status">@success</p>
+        }
+        @if (TempData["CommentError"] is string error)
+        {
+            <p role="alert">@error</p>
+        }
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <form asp-controller="Article" asp-action="AddComment" method="post" asp-antiforgery="false">
+                <input asp-for="ArticleId" type="hidden" />
+                <div class="back-textarea">
+                    <label asp-for="CommentDetail">Yorumunuz</label>
+                    <textarea asp-for="CommentDetail" placeholder="Mesajınız" required maxlength="4000"></textarea>
                 </div>
-                <div class="col-lg-6">
-                    <div class="back-input">
-                        <input type="text" name="name" placeholder="Adınız">
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="back-input">
-                        <input type="email" name="email" placeholder="E-posta adresiniz">
-                    </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="back-input">
-                        <input type="text" name="website" placeholder="Web siteniz">
-                    </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="back-check-box">
-                        <input type="checkbox" id="box-1"> Bir sonraki yorumum için adımı,
-                        e-posta adresimi ve web sitemi bu tarayıcıda kaydet.
-                    </div>
-                    <button type="submit" class="back-btn">Yorumu Gönder</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+                <button type="submit" class="back-btn">Yorumu Gönder</button>
+            </form>
+        }
+        else
+        {
+            <p>Yorum yapmak için oturum açmalısınız.</p>
+        }
+    </div></div>
+}

@@ -1,0 +1,22 @@
+@model AIBlog.WebUI.Dtos.ArticleDtos.GetArticleByIdDto
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+<div class="back-wrapper">
+    <div class="back__blog__area back-blog-page back-blog-page-single pt-70 pb-60">
+        <div class="container"><div class="row"><div class="col-lg-8">
+            <div class="blog-single-inner"><div class="blog-content">
+                <h1>@Model.Title</h1>
+                <p>@Model.CreatedDate.ToString("dd MMMM yyyy", System.Globalization.CultureInfo.GetCultureInfo("tr-TR"))</p>
+                @if (!string.IsNullOrWhiteSpace(Model.MainImageUrl))
+                {
+                    <div class="blog-image"><img src="@Url.Content(Model.MainImageUrl)" alt="@Model.Title" /></div>
+                }
+                <div style="white-space: pre-wrap;">@Model.Content</div>
+                @await Component.InvokeAsync("_BlogDetailCommentComponentArtial", new { articleId = Model.ArticleId })
+                @await Component.InvokeAsync("_BlogDetailAddCommentComponentArtial", new { articleId = Model.ArticleId })
+            </div></div>
+        </div></div></div>
+    </div>
+</div>

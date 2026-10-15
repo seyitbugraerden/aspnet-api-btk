@@ -1,16 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AIBlog.WebUI.Dtos.CommentDtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AIBlog.WebUI.ViewComponents.BlogDetailComponents
+namespace AIBlog.WebUI.ViewComponents.BlogDetailComponents;
+
+public class _BlogDetailAddCommentComponentArtial : ViewComponent
 {
-    public class _BlogDetailAddCommentComponentArtial:ViewComponent
-    {
-        public IViewComponentResult Invoke()
-        {
-            return View();
-        }
-    }
+    public IViewComponentResult Invoke(int articleId = 0) => View(new CreateCommentDto { ArticleId = articleId });
 }

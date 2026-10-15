@@ -1,15 +1,14 @@
-using System;
-using AIBlog.WebApi.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace AIBlog.WebApi.Dtos.CommentDtos;
 
 public class CreateCommentDto
 {
-    public int CommentId { get; set; }
-    public string AppUserId { get; set; }
-    public AppUser AppUser { get; set; }
-    public DateTime CommentDate { get; set; }
-    public string CommentDetail { get; set; }
-    public bool IsConfirmed { get; set; }
-    public string CommentStatus { get; set; }
+    [Range(1, int.MaxValue)]
+    public int ArticleId { get; set; }
+    [Required]
+    public string AppUserId { get; set; } = string.Empty;
+    [Required(ErrorMessage = "Yorum metni zorunludur.")]
+    [StringLength(4000)]
+    public string CommentDetail { get; set; } = string.Empty;
 }
