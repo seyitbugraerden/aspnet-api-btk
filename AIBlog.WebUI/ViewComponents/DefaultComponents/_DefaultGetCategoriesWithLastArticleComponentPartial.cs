@@ -17,7 +17,7 @@ namespace AIBlog.WebUI.ViewComponents.DefaultComponents
         {
             var client = _httpClientFactory.CreateClient();
             using var response = await client.GetAsync(
-                "http://localhost:5159/api/Articles/GetLastArticlesOfDifferemtCategories");
+                "http://localhost:5159/api/Articles/GetLastArticlesOfDifferentCategories");
 
             if (!response.IsSuccessStatusCode || response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {

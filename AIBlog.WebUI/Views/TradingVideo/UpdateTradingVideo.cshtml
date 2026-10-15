@@ -1,0 +1,32 @@
+@model AIBlog.WebUI.Dtos.TradingVideoDtos.UpdateTradingVideoDto
+@{
+    ViewData["Title"] = "Video Düzenle";
+    Layout = "~/Views/UILayout/AdminLayout/Index.cshtml";
+}
+<h1 class="h4 mb-3">Video Düzenle</h1>
+<div class="card"><div class="card-body">
+    <form asp-action="UpdateTradingVideo" method="post" asp-antiforgery="false">
+        <input asp-for="TradingVideoId" type="hidden" />
+        <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ThumbnailImageUrl" class="form-label"></label>
+            <input asp-for="ThumbnailImageUrl" class="form-control" />
+            <span asp-validation-for="ThumbnailImageUrl" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="EmbedVideoUrl" class="form-label"></label>
+            <input asp-for="EmbedVideoUrl" class="form-control" />
+            <span asp-validation-for="EmbedVideoUrl" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+        <a asp-action="TradingVideoList" class="btn btn-outline-secondary">Vazgeç</a>
+    </form>
+</div></div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

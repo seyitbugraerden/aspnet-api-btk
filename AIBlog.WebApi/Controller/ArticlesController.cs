@@ -96,8 +96,8 @@ namespace AIBlog.WebApi.Controller
             var values = _context.Articles.Include(x => x.Category).Where(x => x.Category.CategoryName == "Yemek").Include(y => y.AppUser).OrderByDescending(x => x.ArticleId).FirstOrDefault();
             return Ok(_mapper.Map<ResultArticleSingleFood>(values));
         }
-        [HttpGet("GetLastArticlesOfDifferemtCategories")]
-        public IActionResult GetLastArticlesOfDifferemtCategories()
+        [HttpGet("GetLastArticlesOfDifferentCategories")]
+        public IActionResult GetLastArticlesOfDifferentCategories()
         {
             var values = _context.Articles
                 .AsNoTracking()

@@ -1,0 +1,49 @@
+@model List<AIBlog.WebUI.Dtos.TradingVideoDtos.ResultTradingVideoDto>
+@{
+    ViewData["Title"] = "Trading Videoları";
+    Layout = "~/Views/UILayout/AdminLayout/Index.cshtml";
+}
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Trading Videoları</h1>
+    <a asp-action="CreateTradingVideo" class="btn btn-primary">Yeni Video</a>
+</div>
+@if (TempData["SuccessMessage"] is string success)
+{
+    <div class="alert alert-success" role="status">@success</div>
+}
+@if (TempData["ErrorMessage"] is string error)
+{
+    <div class="alert alert-danger" role="alert">@error</div>
+}
+@if (ViewBag.ErrorMessage is string loadError)
+{
+    <div class="alert alert-danger" role="alert">@loadError <a asp-action="TradingVideoList" class="alert-link">Tekrar dene</a></div>
+}
+else
+{
+    <div class="card"><div class="card-body table-responsive">
+        <table class="table align-middle mb-0">
+            <thead class="table-secondary"><tr><th scope="col">ID</th><th scope="col">Görsel</th><th scope="col">Başlık</th><th scope="col">Video Bağlantısı</th><th scope="col">Tarih</th><th scope="col">İşlemler</th></tr></thead>
+            <tbody>
+                @if (Model.Count == 0)
+                {
+                    <tr><td colspan="6" class="text-center py-4 text-muted">Henüz video eklenmemiş.</td></tr>
+                }
+                @foreach (var video in Model)
+                {
+                    <tr>
+                        <td>@video.TradingVideoId</td>
+                        <td><img src="@Url.Content(video.ThumbnailImageUrl)" alt="@video.Title" width="120" height="68" class="rounded" style="object-fit: cover;" loading="lazy" /></td>
+                        <td>@video.Title</td><td class="text-break">@video.EmbedVideoUrl</td><td>@video.CreatedDate.ToString("dd.MM.yyyy HH:mm")</td>
+                        <td><div class="d-flex gap-2">
+                            <a asp-action="UpdateTradingVideo" asp-route-id="@video.TradingVideoId" class="btn btn-sm btn-outline-primary">Düzenle</a>
+                            <form asp-action="DeleteTradingVideo" asp-route-id="@video.TradingVideoId" method="post" asp-antiforgery="false" onsubmit="return confirm('Bu videoyu silmek istediğinize emin misiniz?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Sil</button>
+                            </form>
+                        </div></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div></div>
+}
