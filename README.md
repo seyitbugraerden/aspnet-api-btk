@@ -11,6 +11,31 @@ BTK eğitim çalışmaları kapsamında geliştirilen bu proje, API ve arayüz a
 
 > Proje geliştirme aşamasındadır. Admin erişim kontrolü ve kullanıcı oturum akışı henüz tamamlanmamıştır. Uygulama adı AIBlog olsa da mevcut sürümde bir yapay zekâ servisi entegrasyonu bulunmaz.
 
+## Ekran görüntüleri
+
+Görseller, yerel SQL Server veritabanına bağlı çalışan uygulamadan alınmıştır. Ekranlardaki içerikler geliştirme verilerini gösterir.
+
+### Blog ana sayfası
+
+![Blog ana sayfası: slider ve kategori kartları](docs/images/blog-home.png)
+
+<details>
+<summary>Makale detayı ve yönetim ekranlarını görüntüle</summary>
+
+### Makale detayı
+
+![Makale detay sayfası](docs/images/article-detail.png)
+
+### Makale yönetimi
+
+![Admin panelinde makale listesi ve yönetim işlemleri](docs/images/admin-articles.png)
+
+### Yorum yönetimi
+
+![Admin panelinde yorum filtreleme, onaylama, düzenleme ve silme](docs/images/admin-comments.png)
+
+</details>
+
 ## Özellikler
 
 ### Ziyaretçi arayüzü
@@ -90,6 +115,35 @@ git clone https://github.com/seyitbugraerden/aspnet-api-btk.git
 cd aspnet-api-btk
 dotnet restore AIBlog.slnx
 ```
+
+### Docker ile SQL Server (isteğe bağlı)
+
+Yerel SQL Server kurulumu yerine veritabanını Docker üzerinde çalıştırabilirsiniz. Bu akışta yalnızca SQL Server konteynerde, API ve WebUI ise .NET CLI ile makinenizde çalışır. Depoda uygulamalar için Dockerfile veya Docker Compose yapılandırması bulunmaz.
+
+Docker Desktop veya Docker Engine çalışırken aşağıdaki komutları Bash/Zsh terminalinde uygulayın. `YOUR_STRONG_LOCAL_PASSWORD` değerini SQL Server parola kurallarına uygun kendi yerel parolanızla değiştirin:
+
+```bash
+export MSSQL_SA_PASSWORD='YOUR_STRONG_LOCAL_PASSWORD'
+docker volume create aiblog-sql-data
+docker run --name aiblog-sql \
+  --env ACCEPT_EULA=Y \
+  --env MSSQL_PID=Developer \
+  --env MSSQL_SA_PASSWORD \
+  --publish 127.0.0.1:1433:1433 \
+  --volume aiblog-sql-data:/var/opt/mssql \
+  --detach mcr.microsoft.com/mssql/server:2022-latest
+```
+
+Named volume veritabanı dosyalarını konteynerden ayrı tutar. SQL Server hazır olduğunda aşağıdaki bağlantı ayarında kullanıcı adı olarak `sa`, parola olarak seçtiğiniz değeri kullanın; ardından migration adımına geçin. Aynı isimde bir konteyner zaten varsa yeniden oluşturmak yerine `docker start aiblog-sql` komutunu kullanın.
+
+```bash
+docker ps --filter name=aiblog-sql
+docker logs --tail 30 aiblog-sql
+docker stop aiblog-sql
+docker start aiblog-sql
+```
+
+SQL Server Linux konteynerleri için Microsoft’un desteklediği mimari x86-64’tür; Apple Silicon üzerinde emülasyon resmi destek kapsamında değildir. Kurulum ayrıntıları ve platform gereksinimleri için [Microsoft SQL Server Docker rehberini](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16) inceleyin.
 
 ### 2. Veritabanı bağlantısını tanımlayın
 
