@@ -1,0 +1,68 @@
+@model List<AIBlog.WebUI.Dtos.CommentDtos.ResultCommentDto>
+@{
+    ViewData["Title"] = "Yorumlar";
+    Layout = "~/Views/UILayout/AdminLayout/Index.cshtml";
+    int? articleId = ViewBag.ArticleId;
+    bool? confirmed = ViewBag.Confirmed;
+}
+<h1 class="h4 mb-3">Yorum Yönetimi</h1>
+<p class="text-muted">Yorumları inceleyin, onaylayın veya yayından kaldırın. Sadece onaylı yorumlar makale sayfasında görünür.</p>
+@if (TempData["SuccessMessage"] is string success)
+{
+    <div class="alert alert-success" role="status">@success</div>
+}
+@if (TempData["ErrorMessage"] is string error)
+{
+    <div class="alert alert-danger" role="alert">@error</div>
+}
+<div class="card mb-3"><div class="card-body">
+    <form asp-action="CommentList" method="get" class="row g-3 align-items-end">
+        <div class="col-md-4"><label for="articleId" class="form-label">Makale ID</label><input id="articleId" name="articleId" type="number" min="1" value="@articleId" class="form-control" placeholder="Tüm makaleler" /></div>
+        <div class="col-md-4"><label for="confirmed" class="form-label">Durum</label><select id="confirmed" name="confirmed" class="form-select">
+            <option value="">Tüm yorumlar</option>
+            <option value="false" selected="@(confirmed == false)">Onay bekleyen</option>
+            <option value="true" selected="@(confirmed == true)">Onaylanan</option>
+        </select></div>
+        <div class="col-md-4 d-flex gap-2"><button class="btn btn-primary" type="submit">Filtrele</button><a asp-action="CommentList" class="btn btn-outline-secondary">Temizle</a></div>
+    </form>
+</div></div>
+@if (ViewBag.ErrorMessage is string loadError)
+{
+    <div class="alert alert-danger" role="alert">@loadError <a asp-action="CommentList" asp-route-articleId="@articleId" asp-route-confirmed="@confirmed" class="alert-link">Tekrar dene</a></div>
+}
+else
+{
+    <div class="card"><div class="card-body">
+        <p class="text-muted">@Model.Count yorum gösteriliyor.</p>
+        <div class="table-responsive"><table class="table align-middle">
+            <thead class="table-secondary"><tr><th scope="col">Yazar / Tarih</th><th scope="col">Makale</th><th scope="col">Yorum</th><th scope="col">Durum</th><th scope="col" class="text-end">İşlemler</th></tr></thead>
+            <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr><td colspan="5" class="text-center text-muted py-4">Bu filtrelere uygun yorum bulunamadı.</td></tr>
+            }
+            @foreach (var comment in Model)
+            {
+                <tr>
+                    <td><strong>@comment.AuthorName</strong><small class="d-block text-muted">#@comment.CommentId · @comment.CommentDate.ToString("dd.MM.yyyy HH:mm")</small></td>
+                    <td><a asp-controller="Article" asp-action="ArticleDetail" asp-route-id="@comment.ArticleId">Makale #@comment.ArticleId</a></td>
+                    <td style="min-width:220px;max-width:420px;white-space:pre-wrap;overflow-wrap:anywhere">@comment.CommentDetail</td>
+                    <td><span class="badge @(comment.IsConfirmed ? "bg-success" : "bg-warning text-dark")">@(comment.IsConfirmed ? "Onaylandı" : "Onay Bekliyor")</span></td>
+                    <td><div class="d-flex justify-content-end flex-wrap gap-2">
+                        <form asp-action="SetConfirmation" method="post">
+                            <input type="hidden" name="id" value="@comment.CommentId" /><input type="hidden" name="isConfirmed" value="@((!comment.IsConfirmed).ToString().ToLowerInvariant())" />
+                            <input type="hidden" name="articleId" value="@articleId" /><input type="hidden" name="confirmed" value="@confirmed" />
+                            <button type="submit" class="btn btn-sm @(comment.IsConfirmed ? "btn-outline-warning" : "btn-outline-success")">@(comment.IsConfirmed ? "Yayından kaldır" : "Onayla")</button>
+                        </form>
+                        <a asp-action="UpdateComment" asp-route-id="@comment.CommentId" class="btn btn-sm btn-outline-primary">Düzenle</a>
+                        <form asp-action="DeleteComment" method="post" onsubmit="return confirm('Bu yorum kalıcı olarak silinecek. Emin misiniz?');">
+                            <input type="hidden" name="id" value="@comment.CommentId" /><input type="hidden" name="articleId" value="@articleId" /><input type="hidden" name="confirmed" value="@confirmed" />
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Sil</button>
+                        </form>
+                    </div></td>
+                </tr>
+            }
+            </tbody>
+        </table></div>
+    </div></div>
+}

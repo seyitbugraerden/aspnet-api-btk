@@ -1,0 +1,24 @@
+@model AIBlog.WebUI.Dtos.CommentDtos.UpdateCommentDto
+@{
+    ViewData["Title"] = "Yorum Düzenle";
+    Layout = "~/Views/UILayout/AdminLayout/Index.cshtml";
+    var comment = ViewBag.Comment as AIBlog.WebUI.Dtos.CommentDtos.ResultCommentDto;
+}
+<h1 class="h4 mb-3">Yorum Düzenle #@Model.CommentId</h1>
+<div class="card"><div class="card-body">
+    @if (comment != null)
+    {
+        <p><strong>@comment.AuthorName</strong> · @comment.CommentDate.ToString("dd.MM.yyyy HH:mm") · <a asp-controller="Article" asp-action="ArticleDetail" asp-route-id="@comment.ArticleId">Makale #@comment.ArticleId</a></p>
+    }
+    <form asp-action="UpdateComment" method="post">
+        <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+        <input asp-for="CommentId" type="hidden" /><input asp-for="ArticleId" type="hidden" />
+        <div class="mb-3"><label asp-for="CommentDetail" class="form-label">Yorum metni</label><textarea asp-for="CommentDetail" class="form-control" rows="8" maxlength="4000" required></textarea><span asp-validation-for="CommentDetail" class="text-danger"></span><div class="form-text">En fazla 4000 karakter.</div></div>
+        <div class="form-check mb-3"><input asp-for="IsConfirmed" class="form-check-input" /><label asp-for="IsConfirmed" class="form-check-label">Onaylandı (makale sayfasında yayınla)</label></div>
+        <button class="btn btn-primary" type="submit">Kaydet</button>
+        <a asp-action="CommentList" asp-route-articleId="@Model.ArticleId" class="btn btn-outline-secondary">Vazgeç</a>
+    </form>
+</div></div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
